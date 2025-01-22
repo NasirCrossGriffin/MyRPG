@@ -1,0 +1,1 @@
+package myrpg.backend.api.controller;
