@@ -1,0 +1,13 @@
+<div class="LoginPage">
+    <div class="LoginContainer">
+        <form class="LoginForm">
+            <p class="LoginSplash">Login</p>
+            <p class="LoginInstructions">Enter your username and password</p>
+            <label for="EnterUsername">Username</label>
+            <input name="EnterUsername" class="EnterUsername" type="text" [value]="username" (input)="updateUsername($event)" />
+            <label for="EnterPassword">Password</label>
+            <input name="EnterPassword" class="EnterPassword" type="password" [value]="password" (input)="updatePassword($event)" />
+            <button class="Authenticate" type="button" (click)="authenticate()">Login</button>
+        </form>
+    </div>
+</div>
