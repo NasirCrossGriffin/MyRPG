@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component ({
     selector: 'app-login',
@@ -10,6 +11,8 @@ export class LoginComponent {
     username : string = "";
     password : string = "";
 
+    BASE_URL : string = environment.BASE_URL;
+
     updateUsername(event: Event) : void {
         const input = (event.target as HTMLInputElement).value;
         this.username = input;
@@ -20,8 +23,22 @@ export class LoginComponent {
         this.password = input;
     }
 
-    authenticate() : void {
+    async authenticate() {
         console.log(this.username);
         console.log(this.password);
+
+        const authentication = {
+            username : this.username,
+            password : this.password
+        }
+
+        const authenticationresponse = await fetch(`${this.BASE_URL}/api/users/authenticate` ,{ 
+            headers : {'Content-Type': 'application/json'},
+            method : 'POST',
+            body: JSON.stringify(authentication)
+        })
+
+        
+        console.log(await authenticationresponse.text())
     }
 }

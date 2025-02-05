@@ -1,0 +1,26 @@
+<div class=Signup>
+	<h1>Welcome to MyRpg</h1>
+
+	<h2>here you will enter the details for your account login</h2>
+	<label for="email">Enter Email</label>
+	<input name="email" class="email" [value]="email" (input)="updateEmail($event)" />
+	<label for="username">Enter Username</label>
+	<input name="username" class="username" [value]="username" (input)="updateUsername($event)" />
+	<label for="password">Enter Password</label>
+	<input name="password" class="password" [value]="password" (input)="updatePassword($event)" />
+
+	<h2>here you will choose the class for your adventurer</h2>
+	<label for="class">Enter Class</label>
+    <select id="class" (change)="updateClass($event)">
+      <option value="Warrior">Warrior</option>
+      <option value="Scholar">Scholar</option>
+    </select>
+	<label for="subclass" >Enter Subclass</label>
+    <select id="subclass" (change)="updateSubclass($event)">
+      <option value="Warrior">Warrior</option>
+      <option value="Scholar">Scholar</option>
+    </select>
+	<input type="file" className="profilePic" (input)="updateProfilePic($event)"/>
+	<input type="file" className="bannerPic" (input)="updateBannerPic($event)"/>
+  	<button class="CreateUser" type="button" (click)="submitHandler()">Create User</button>
+</div>

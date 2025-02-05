@@ -1,11 +1,19 @@
 package myrpg.backend.api.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
+@Table(
+    name = "scholar",
+    uniqueConstraints = { 
+        @UniqueConstraint(columnNames = "charName")
+    }
+)
 public class Scholar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
@@ -14,10 +22,19 @@ public class Scholar {
     private String charName;
     private int level;
     private int toNextLevel;
+    private int experience;
     private int math;
     private int language;
     private int history;
     private int science;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCharName() {
     return charName;
@@ -41,6 +58,14 @@ public class Scholar {
 
     public void setToNextLevel(int toNextLevel) {
         this.toNextLevel = toNextLevel;
+    }
+
+    public int experience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
     }
 
     public int getMath() {

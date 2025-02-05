@@ -1,0 +1,44 @@
+<div *ngif="loaded === true" class=Adventurer_View>
+	<div *ngif="advClass === 'Warrior'"class="Warriror_Stats">
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Strength: </p>
+			<p class="Stat_Value">{{advStrength}}</p>
+		</div>
+		
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Speed: </p>
+			<p class="Stat_Value">{{advSpeed}}</p>
+		</div>
+		
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Endurance: </p>
+			<p class="Stat_Value">{{advStamina}}</p>
+		</div>
+	</div>
+	
+	<div *ngif="advClass === 'Scholar'"class="Scholar_Stats">
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Math: </p>
+			<p class="Stat_Value">{{advMath}}</p>
+		</div>
+		
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Science: </p>
+			<p class="Stat_Value">{{advScience}}</p>
+		</div>
+		
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">Language: </p>
+			<p class="Stat_Value">{{advLanguage}}</p>
+		</div>
+		
+		<div class="Stats_Cont" >
+			<p class="Stat_Name">History: </p>
+			<p class="Stat_Value">{{advHistory}}</p>
+		</div>
+	</div>
+</div>
+
+<div *ngif="loaded === false">
+	<img [src]="loadingimage"/>
+</div>

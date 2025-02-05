@@ -1,0 +1,60 @@
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username" : "???",
+    "password" : "???",
+    "email" : "???",
+    "className" : "???",
+    "classId" : 0,
+    "subClassName" : "???",
+    "subClassId" : 0
+}
+
+###
+
+POST http://localhost:8080/api/users/authenticate
+Content-Type: application/json
+
+{
+    "username" : "NasirGriffin",
+    "password" : "NovaBlade1991%"
+}
+
+###
+
+POST http://localhost:8080/api/warrior
+Content-Type: application/json
+
+{
+    "charName" : "???",
+    "level" : 0,
+    "toNextLevel" : 0,
+    "experience" : 0,
+    "strength" : 0,
+    "endurance" : 0,
+    "speed" : 0
+}
+
+###
+
+GET http://localhost:8080/api/users/3
+
+###
+
+GET http://localhost:8080/buckets/list
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "username" : "???",
+    "password" : "???",
+    "email" : "???",
+    "className" : "???",
+    "classId" : 0,
+    "subClassName" : "???",
+    "subClassId" : 0
+}

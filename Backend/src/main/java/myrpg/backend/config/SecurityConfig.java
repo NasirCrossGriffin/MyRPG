@@ -11,9 +11,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+            .cors(cors -> cors.disable())
             .csrf(csrf -> csrf.disable()) // Proper lambda to disable CSRF
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").permitAll() // Permit public endpoints
+                .requestMatchers("/api/**").permitAll()
+                .requestMatchers("/buckets/**").permitAll() // Permit public endpoints
                 .anyRequest().authenticated() // Require authentication for others
             )
             .httpBasic(httpBasic -> {}) // Use an empty lambda body to enable HTTP Basic Authentication

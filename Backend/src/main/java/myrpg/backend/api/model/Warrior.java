@@ -2,10 +2,18 @@ package myrpg.backend.api.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
+@Table(
+    name = "warrior",
+    uniqueConstraints = { 
+        @UniqueConstraint(columnNames = "charName")
+    }
+)
 public class Warrior {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment

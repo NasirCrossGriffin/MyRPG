@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Login/Login.component';
+import { SignupComponent } from './Signup/Signup.component'; // Import the component
 
 export const routes: Routes = [
-    { path: 'Login', component: LoginComponent }, // Default route
-    { path: '**', redirectTo: 'Login' } // Wildcard route for 404
+    { path: 'login', component: LoginComponent }, // Default route
+    { path: 'signup', component: SignupComponent },
+    { path: '**', redirectTo: 'login' } // Wildcard route for 404
 ];

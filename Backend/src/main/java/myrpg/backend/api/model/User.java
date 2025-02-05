@@ -1,16 +1,29 @@
 package myrpg.backend.api.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.Table;
+
+import java.io.*;
 
 @Entity
+@Table(
+    name = "user",
+    uniqueConstraints = { 
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email"),
+        @UniqueConstraint(columnNames = "classId"),
+        @UniqueConstraint(columnNames = "subClassId") 
+    }
+)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
     private Long id;
-    
     private String username;
     private String password;
     private String email;
@@ -18,11 +31,13 @@ public class User {
     private Long classId;
     private String subClassName;
     private Long subClassId;
+    private String profilePic;
+    private String bannerPic;
     
     public User() {
     }
 
-    public User(String username, String password, String email, String className, Long classId, String subClassName, Long subClassId) {
+    public User(String username, String password, String email, String className, Long classId, String subClassName, Long subClassId, String profilePic, String bannerPic) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -30,6 +45,8 @@ public class User {
         this.classId = classId;
         this.subClassName = subClassName;
         this.subClassId = subClassId;
+        this.profilePic = profilePic;
+        this.bannerPic = bannerPic;
     }
     
     public long getId() {
@@ -94,5 +111,21 @@ public class User {
 
     public void setSubClassId(Long subClassId) {
         this.subClassId = subClassId;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
+    public String getProfilePic() {
+        return this.profilePic;
+    }
+
+    public void setBannerPic(String bannerPic) {
+        this.bannerPic = bannerPic;
+    }
+
+    public String getBannerPic() {
+        return this.bannerPic;
     }
 }
