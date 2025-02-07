@@ -1,18 +1,26 @@
+@font-face {
+    font-family: KHFont;
+    src: url('../../assets/fonts/Kingdom_Hearts_Font.ttf');
+}
+
 .LoginPage {
     width : 100%;
-    height : 100%;
+    height : 70%;
     display : flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .LoginContainer {
-    border: solid;
-    color: #f9f9f9;
-    border-color : #f4f4f4;
-    border-radius: 1px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(27, 27, 27);
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
+    margin-left: 25px;
+    width : 40%;
+    height :80%;
 }
 
 .LoginForm {
@@ -20,21 +28,67 @@
     flex-direction: column;
     align-items: center;
     padding: 20px 20px 20px 20px;
+    font-size: 50px;
+    color: white;
+    font-family: KHFont;
 }
 
 .EnterUsername, .EnterPassword {
     margin-bottom: 25px;
+    width : 75%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-width: 2px;
+    font-size: 20px;
+    background-color: rgb(68, 68, 68);
+    color: rgb(0, 0, 0);
 }
 
 .LoginSplash {
-    color : black;
+    color: blueviolet;
     font-weight: bold;
+    font-size: 70px;
+    margin-bottom: -50px;
 }
 
 .LoginInstructions {
-    color: black;
+    color: blueviolet;
+    margin-bottom: -5px;
 }
 
 label {
-    color: black;
+    color: blueviolet;
+}
+
+.Authenticate {
+    border-color: transparent;
+    background-color: blueviolet;
+    width : 20%;
+    height : 50px;
+    border-radius: 10px;
+    font-family: KHFont;
+    font-size: 50px;
+}
+
+.Authenticate:hover {
+    background-color: rgb(40, 12, 66);  
+}
+
+.YukiContainer {
+    width : 30%;
+    height : 125%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.YukiContainer img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width : 100%;
+    height : 100%;
+    object-fit: contain;
 }

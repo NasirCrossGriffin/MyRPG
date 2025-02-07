@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 
 @Component ({
     selector: 'app-login',
+    standalone: true,
     templateUrl: './Login.component.html',
     styleUrls: ["./Login.component.css"],
 })

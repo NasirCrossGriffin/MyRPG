@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 
 @Component ({
     selector: 'app-signup',
+    standalone: true,
     templateUrl: './Signup.component.html',
     styleUrls: ["./Signup.component.css"],
 })
