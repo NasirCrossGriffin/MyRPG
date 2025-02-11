@@ -5,8 +5,8 @@ body {
 .Adventurer_View {
     width : 100%;
     height : 100%;
-    display: flex;  
-    flex-direction: row;   
+    display: flex;
+    flex-direction: row;
     align-items: flex-start;
     color: rgb(0, 0, 0);
 }
@@ -17,7 +17,8 @@ body {
     align-items: flex-start;
     justify-content: center;
     margin-left: 50px;
-    margin-right: 50px
+    margin-right: 50px;
+    font-size: 20px;
 }
 
 .Stat_Bar {
@@ -32,4 +33,116 @@ body {
 .Stat_Amount {
     height : 100%;
     background-color: rgb(87, 157, 236);
+}
+
+.iconandcategory {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 1%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.iconcontainer {
+  width : 100px;
+  height : 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(27, 27, 27);
+  margin-right: 1%;
+}
+
+.iconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+.sectionSeparator {
+  height: 5px;
+  width : 100%;
+  background-color: white;
+  margin-top : 10px;
+  margin-bottom : 10px;
+  padding: 0px 25px 0px 25px;
+}
+
+.statsSection {
+  width : 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 25px 25px 25px;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
+  margin-bottom: 25px;
+}
+
+.bannerPicContainer{
+  width : 40%;
+  height : 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bannerPicContainer img{
+  width : 100%;
+  height : 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.statsandbanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 5%;
+}
+
+.lvliconandlevel {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 1%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.lvliconcontainer {
+  width : 100px;
+  height : 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 1%;
+}
+
+.lvliconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
 }

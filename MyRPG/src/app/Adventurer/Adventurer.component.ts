@@ -31,6 +31,11 @@ export class AdventurerComponent {
     subHistory : number = 0;
     subScience : number = 0;
     subLanguage : number = 0;
+    profilePic : string = "";
+    bannerPic : string = "";
+    user_name : string = "";
+    level : string = "";
+    toNextLevel : string = "";
     BASE_URL : string = environment.BASE_URL;
 
     constructor(private route: ActivatedRoute, private cdRef: ChangeDetectorRef) {}
@@ -41,11 +46,14 @@ export class AdventurerComponent {
         const userresponse = await fetch(`${this.BASE_URL}/api/users/${this.userId}`, {
             headers : {'Content-Type' : 'application/json'},
             method : 'GET'
-        }) 
+        })
 
         if (userresponse.ok) {
             const user = await userresponse.json();
             console.log(user);
+            this.profilePic = user.profilePic;
+            this.bannerPic = user.bannerPic;
+            this.user_name = user.username;
             this.className = user.className;
             this.subClassName= user.subClassName;
             if (this.className === "Scholar") {
@@ -60,6 +68,8 @@ export class AdventurerComponent {
                     this.advLanguage = scholar.language;
                     this.advHistory = scholar.history;
                     this.advScience = scholar.science;
+                    this.level = scholar.level;
+                    this.toNextLevel = scholar.toNextLevel;
                     console.log("All values updated")
                     this.loaded = true;
                     console.log("This is the value of loaded: " + this.loaded);

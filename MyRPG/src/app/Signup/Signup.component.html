@@ -1,26 +1,56 @@
-<div class=Signup>
-	<h1>Welcome to MyRpg</h1>
+<div class="SignupPage">
+	<div class=Signup>
+		<h1>Welcome to MyRpg</h1>
 
-	<h2>here you will enter the details for your account login</h2>
-	<label for="email">Enter Email</label>
-	<input name="email" class="email" [value]="email" (input)="updateEmail($event)" />
-	<label for="username">Enter Username</label>
-	<input name="username" class="username" [value]="username" (input)="updateUsername($event)" />
-	<label for="password">Enter Password</label>
-	<input name="password" class="password" [value]="password" (input)="updatePassword($event)" />
+		<div class="iconandcategory">
+			<div class="iconcontainer">
+				<img src="/Knight.png" />
+			</div>
+			<p>Account Details</p>
+		</div>
+		<div class="sectionSeparator"></div>
+		<div class="accountContainer">
+			<h2>Here you will enter the details for your account login</h2>
+			<label for="email">Enter Email</label>
+			<input type="text" name="email" class="email" [value]="email" (input)="updateEmail($event)" />
+			<label for="username">Enter Username</label>
+			<input type="text" name="username" class="username" [value]="username" (input)="updateUsername($event)" />
+			<label for="password">Enter Password</label>
+			<input type="password" name="password" class="password" [value]="password" (input)="updatePassword($event)" />
+      <div class="picandpreview">
+			  <input type="file" className="profilePic" (input)="updateProfilePic($event)"/>
+        <div class="profilePicContainer">
+          <img *ngIf="profilePicURL.length != 0" [src]="profilePicURL" />
+        </div>
+      </div>
+      <div class="picandpreview">
+        <input type="file" className="bannerPic" (input)="updateBannerPic($event)"/>
+        <div class="bannerPicContainer">
+          <img *ngIf="bannerPicURL.length != 0" [src]="bannerPicURL" />
+        </div>
+      </div>
+    </div>
 
-	<h2>here you will choose the class for your adventurer</h2>
-	<label for="class">Enter Class</label>
-    <select id="class" (change)="updateClass($event)">
-      <option value="Warrior">Warrior</option>
-      <option value="Scholar">Scholar</option>
-    </select>
-	<label for="subclass" >Enter Subclass</label>
-    <select id="subclass" (change)="updateSubclass($event)">
-      <option value="Warrior">Warrior</option>
-      <option value="Scholar">Scholar</option>
-    </select>
-	<input type="file" className="profilePic" (input)="updateProfilePic($event)"/>
-	<input type="file" className="bannerPic" (input)="updateBannerPic($event)"/>
-  	<button class="CreateUser" type="button" (click)="submitHandler()">Create User</button>
+    <div class="iconandcategory">
+			<div class="iconcontainer">
+				<img src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
+			</div>
+			<p>Class Details</p>
+		</div>
+		<div class="sectionSeparator"></div>
+		<div class="classContainer">
+			<h2>Here you will choose the class for your adventurer</h2>
+			<label for="class">Enter Class</label>
+			<select id="class" (change)="updateClass($event)">
+			<option value="Warrior">Warrior</option>
+			<option value="Scholar">Scholar</option>
+			</select>
+			<label for="subclass" >Enter Subclass</label>
+			<select id="subclass" (change)="updateSubclass($event)">
+			<option value="Warrior">Warrior</option>
+			<option value="Scholar">Scholar</option>
+			</select>
+		</div>
+		<button class="CreateUser" type="button" (click)="submitHandler()">Create User</button>
+	</div>
 </div>

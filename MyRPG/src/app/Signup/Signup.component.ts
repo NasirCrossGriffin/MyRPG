@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { CommonModule } from '@angular/common';
 
 @Component ({
     selector: 'app-signup',
     standalone: true,
+    imports: [CommonModule],
     templateUrl: './Signup.component.html',
     styleUrls: ["./Signup.component.css"],
 })
@@ -16,6 +18,8 @@ export class SignupComponent {
 	subclass : string =  "";
   profilepic : File | null = null;
   bannerpic : File | null = null;
+  profilePicURL : string = "";
+  bannerPicURL : string = "";
 
 	BASE_URL : string = environment.BASE_URL;
 
@@ -57,6 +61,7 @@ export class SignupComponent {
 		const input = e.target as HTMLInputElement;
 		if (input.files && input.files.length > 0) {
       this.profilepic = input.files[0]; // Assign the first selected file
+      this.profilePicURL = URL.createObjectURL(this.profilepic);
       console.log("Selected file:", this.profilepic);
     } else {
         console.log("No file selected");
@@ -68,6 +73,7 @@ export class SignupComponent {
 		const input = e.target as HTMLInputElement;
 		if (input.files && input.files.length > 0) {
       this.bannerpic = input.files[0]; // Assign the first selected file
+      this.bannerPicURL = URL.createObjectURL(this.bannerpic);
       console.log("Selected file:", this.bannerpic);
     } else {
         console.log("No file selected");

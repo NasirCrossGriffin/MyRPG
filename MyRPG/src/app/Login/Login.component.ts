@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { RouterModule } from '@angular/router';
+
 
 @Component ({
     selector: 'app-login',
+    imports: [RouterModule],
     standalone: true,
     templateUrl: './Login.component.html',
     styleUrls: ["./Login.component.css"],

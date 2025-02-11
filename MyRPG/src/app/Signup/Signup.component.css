@@ -1,0 +1,123 @@
+.iconandcategory {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px;
+    margin-left: 1%;
+}
+
+.SignupPage {
+    display : flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sectionSeparator {
+    height: 5px;
+    width : 30%;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: white;
+    margin-top : 2%;
+    margin-bottom : 2%;
+}
+
+.Signup {
+    width : 100%;
+    height : 100%;
+}
+
+.accountContainer, .classContainer {
+    width : 30%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 25px 25px 25px;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
+    margin-bottom: 25px;
+}
+
+.accountContainer label, .classContainer label {
+  font-size: 25px;
+}
+.accountContainer input[type=text], .accountContainer input[type=password], .classContainer input[type=text] {
+  font-size: 25px;
+  width : 80%;
+  padding : 10px 0px 10px 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.iconcontainer {
+    width : 10%;
+    height : 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(27, 27, 27);
+    margin-right: 1%;
+}
+
+.iconcontainer img {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width : 100%;
+    height : 100%;
+    object-fit: contain;
+}
+
+.picandpreview {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.bannerPicContainer{
+  width : 200px;
+  height : 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.profilePicContainer{
+  width : 200px;
+  height : 200px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profilePicContainer img{
+  width : 100%;
+  height : 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.bannerPicContainer img{
+  width : 100%;
+  height : 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
