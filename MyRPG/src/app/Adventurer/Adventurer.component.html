@@ -13,167 +13,29 @@
   </div>
   <div class="statsandbanner">
     <div class=Adventurer_View>
-      <div *ngIf="className === 'Warrior'" class="Class_Stats">
+      <div  class="Class_Stats">
         <h1 className="class_title">Class: </h1>
         <div class="iconandcategory">
           <div class="iconcontainer">
-            <img src="/sword-silhouette.png" />
+            <img *ngIf="className === 'Warrior'" src="/sword-silhouette.png" />
+            <img *ngIf="className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
           </div>
-          <p>Warrior</p>
+          <p>{{className}}</p>
         </div>
         <div class="sectionSeparator"></div>
 
         <div class="statsSection">
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Strength: </p>
-            <p class="Stat_Value">{{advStrength}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advStrength/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Speed: </p>
-            <p class="Stat_Value">{{advSpeed}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advSpeed/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Endurance: </p>
-            <p class="Stat_Value">{{advEndurance}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advEndurance/100)) + 'px'" class="Stat_Amount"></div>
+          <div class="statsContainer" *ngFor="let stat of stats">
+            <div class="Stats_Cont" >
+              <p class="Stat_Name">{{stat.name}}</p>
+              <p class="Stat_Value">{{stat.value}}</p>
+              <div class="Stat_Bar">
+                <div [style.width]="(150 * (stat.value/100)) + 'px'" class="Stat_Amount"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div *ngIf="className === 'Scholar'" class="Class_Stats">
-        <h1 className="class_title">Class: </h1>
-        <div class="iconandcategory">
-          <div class="iconcontainer">
-            <img src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
-          </div>
-          <p>Scholar</p>
-        </div>
-        <div class="sectionSeparator"></div>
-        <div class="statsSection">
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Math: </p>
-            <p class="Stat_Value">{{advMath}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advMath/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Science: </p>
-            <p class="Stat_Value">{{advScience}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advScience/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Language: </p>
-            <p class="Stat_Value">{{advLanguage}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advLanguage/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">History: </p>
-            <p class="Stat_Value">{{advHistory}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advHistory/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="subClassName === 'Warrior'" class="Class_Stats">
-        <h1 className="class_title">Sub Class: </h1>
-        <div class="iconandcategory">
-          <div class="iconcontainer">
-            <img src="/sword-silhouette.png" />
-          </div>
-          <p>Warrior</p>
-        </div>
-        <div class="sectionSeparator"></div>
-        <div class="statsSection">
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Strength: </p>
-            <p class="Stat_Value">{{advStrength}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advStrength/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Speed: </p>
-            <p class="Stat_Value">{{advSpeed}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advSpeed/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Endurance: </p>
-            <p class="Stat_Value">{{advEndurance}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advEndurance/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="subClassName=== 'Scholar'" class="Class_Stats">
-        <h1 className="class_title">Subclass: </h1>
-        <div class="iconandcategory">
-          <div class="iconcontainer">
-            <img src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
-          </div>
-          <p>Scholar</p>
-        </div>
-        <div class="sectionSeparator"></div>
-        <div class="statsSection">
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Math: </p>
-            <p class="Stat_Value">{{advMath}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advMath/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Science: </p>
-            <p class="Stat_Value">{{advScience}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advScience/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">Language: </p>
-            <p class="Stat_Value">{{advLanguage}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advLanguage/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-
-          <div class="Stats_Cont" >
-            <p class="Stat_Name">History: </p>
-            <p class="Stat_Value">{{advHistory}}</p>
-            <div class="Stat_Bar">
-              <div [style.width]="(150 * (advHistory/100)) + 'px'" class="Stat_Amount"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="bannerPicContainer">
@@ -182,7 +44,7 @@
   </div>
 </div>
 
-  <div *ngIf="loaded === false">
+  <div class="loadingscreen" *ngIf="loaded === false">
     <img [src]="loadingimage"/>
   </div>
 

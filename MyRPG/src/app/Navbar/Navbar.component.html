@@ -1,8 +1,35 @@
 <div class="NavBar">
     <div class="NavBarContainer">
-        <div class="SiteLogoContainer">
-            <img src="/MyRPG.png">
+      <button class="DrawerTrigger" (click)="updateDrawerVisibility()">
+        <div class="DrawerTriggerContainer">
+          <div class="DrawerLine"></div>
+          <div class="DrawerLine"></div>
+          <div class="DrawerLine"></div>
         </div>
+      </button>
+
+      <div class="SiteLogoContainer">
+          <img src="/MyRPG.png">
+      </div>
     </div>
-    <div class="NavBarSeparator"></div>
+</div>
+<div class="NavBarSeparator"></div>
+
+<div *ngIf="drawerVisibility === true" class="Drawer">
+  <div class="Background" (click)="updateDrawerVisibility()"></div>
+  <div class="OuterDrawerContainer">
+    <div class="InnerDrawerContainer">
+      <a routerLink="/adventurers">
+        <button class="DrawerItem" >Adventurers</button>
+      </a>
+
+      <a routerLink="/signup">
+        <button class="DrawerItem" >Signup</button>
+      </a>
+
+      <a routerLink="/login">
+        <button class="DrawerItem" >Login</button>
+      </a>
+    </div>
+  </div>
 </div>

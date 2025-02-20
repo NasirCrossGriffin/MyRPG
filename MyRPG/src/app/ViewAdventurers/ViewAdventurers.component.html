@@ -1,0 +1,46 @@
+<div *ngIf="loaded === true" class="AdventurersPage">
+  <div class="AdventurersGrid">
+    <div *ngFor="let userCard of userView" class="AdventurerCard">
+      <a [routerLink]="'/adventurer/' + userCard.id">
+        <button class="AdventurerCardButton">
+          <div class="AdventurerCardContainer">
+            <div class="NameAndClassContainer">
+              <div class="iconandclass">
+                <div class="classiconcontainer">
+                  <img *ngIf="userCard.className === 'Warrior'" src="/sword-silhouette.png" />
+                    <img *ngIf="userCard.className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
+                </div>
+                <p class="class">{{userCard.className}}</p>
+              </div>
+
+              <div class="iconandcategory">
+                <p class="category">{{userCard.name}}</p>
+
+                <div class="iconcontainer">
+                  <img [src]="userCard.profilePic" />
+                </div>
+              </div>
+            </div>
+
+            <div class="LevelAndBanner">
+              <div class="lvliconandlevel">
+                <div class="lvliconcontainer">
+                  <img src="/Levelicon.png" />
+                </div>
+                <p class="category">{{userCard.level}}</p>
+              </div>
+
+              <div class="bannerPicContainer">
+                <img [src]="userCard.bannerPic" />
+              </div>
+            </div>
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="loadingscreen" *ngIf="loaded === false">
+  <img [src]="loadingimage"/>
+</div>

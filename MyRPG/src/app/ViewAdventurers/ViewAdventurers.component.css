@@ -1,0 +1,219 @@
+@font-face {
+  font-family: KHFont;
+  src: url('../../assets/fonts/Kingdom_Hearts_Font.ttf');
+}
+
+.iconandcategory {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 1%;
+}
+
+.iconandclass {
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 1%;
+}
+
+.iconcontainer {
+  width : 100px;
+  height : 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(27, 27, 27);
+  margin-right: 1%;
+}
+
+.classiconcontainer {
+  width : 100px;
+  height : 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgb(27, 27, 27);
+  margin-right: 1%;
+}
+
+.iconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+.classiconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+.picandpreview {
+display: flex;
+flex-direction: row;
+margin-bottom: 15px;
+}
+
+.bannerPicContainer{
+width : 100px;
+height : 200px;
+background-color: transparent;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+.profilePicContainer{
+width : 200px;
+height : 200px;
+background-color: white;
+border-radius: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+.profilePicContainer img{
+width : 100%;
+height : 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+object-fit: contain;
+}
+
+.bannerPicContainer img{
+width : 100%;
+height : 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+object-fit: contain;
+}
+
+.lvliconandlevel {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 1%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.lvliconcontainer {
+  width : 100px;
+  height : 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-right: 1%;
+}
+
+.lvliconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+.loadingscreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.NameAndClassContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LevelAndBanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+  font-family: KHFont;
+  font-size: 45px;
+}
+
+.class {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+  font-family: KHFont;
+  font-size: 45px;
+}
+
+
+.AdventurerCard {
+  width : 600px;
+  height : 350px;
+  background-color: rgb(27, 27, 27);
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
+  padding: 25px 25px 25px 25px;
+}
+
+.AdventurersGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 50px;
+  width : 90%
+}
+
+.AdventurersPage {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+.AdventurerCardButton {
+  width: 100%;
+  height : 100%;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.AdventurerCardContainer {
+  width : 100%;
+  height : 100%
+}

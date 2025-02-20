@@ -2,52 +2,61 @@ package myrpg.backend.api.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import myrpg.backend.api.dto.UserResponse;
 
-import java.io.*;
 
 @Entity
 @Table(
-    name = "user",
+    name = "User",
     uniqueConstraints = { 
         @UniqueConstraint(columnNames = "username"),
         @UniqueConstraint(columnNames = "email"),
-        @UniqueConstraint(columnNames = "classId"),
-        @UniqueConstraint(columnNames = "subClassId") 
+        @UniqueConstraint(columnNames = "characterclass"),
+        @UniqueConstraint(columnNames = "subclass") 
     }
 )
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
     private Long id;
+    
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
+    
+    @Column(name = "password", nullable = false, unique = false)
     private String password;
+    
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
-    private String className;
-    private Long classId;
-    private String subClassName;
-    private Long subClassId;
+
+    @Column(name = "level", nullable = false, unique = false)
+    private int level;
+
+    @Column(name = "to_next_level", nullable = false, unique = false)
+    private int toNextLevel;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id")
+    private Class characterclass;
+    
+    @Column(name = "profile_pic", nullable = false, unique = false)
     private String profilePic;
+    
+    @Column(name = "banner_pic", nullable = false, unique = false)
     private String bannerPic;
     
     public User() {
+
     }
 
-    public User(String username, String password, String email, String className, Long classId, String subClassName, Long subClassId, String profilePic, String bannerPic) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.className = className;
-        this.classId = classId;
-        this.subClassName = subClassName;
-        this.subClassId = subClassId;
-        this.profilePic = profilePic;
-        this.bannerPic = bannerPic;
-    }
     
     public long getId() {
         return this.id;
@@ -81,36 +90,12 @@ public class User {
         this.email = email;
     }
 
-    public String getClassName() {
-        return this.className;
+    public Class getCharacterclass() {
+        return this.characterclass;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public long getClassId() {
-        return this.classId;
-    }
-
-    public void setClassId(Long classId) {
-        this.classId = classId;
-    }
-
-    public String getSubClassName() {
-        return this.subClassName;
-    }
-
-    public void setSubClassName(String subClassName) {
-        this.subClassName = subClassName;
-    }
-
-    public Long getSubClassId() {
-        return this.subClassId;
-    }
-
-    public void setSubClassId(Long subClassId) {
-        this.subClassId = subClassId;
+    public void setCharacterclass(Class characterclass) {
+        this.characterclass = characterclass;
     }
 
     public void setProfilePic(String profilePic) {
@@ -127,5 +112,35 @@ public class User {
 
     public String getBannerPic() {
         return this.bannerPic;
+    }
+
+    public int getToNextLevel() {
+        return this.toNextLevel;
+    }
+
+    public void setToNextLevel(int toNextLevel) {
+        this.toNextLevel = toNextLevel;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public UserResponse createResponse() {
+        UserResponse userResponse = new UserResponse();
+        userResponse.setId(this.getId());
+        userResponse.setUsername(this.getUsername());
+        userResponse.setPassword(this.getPassword());
+        userResponse.setEmail(this.getEmail());
+        userResponse.setLevel(this.getLevel());
+        userResponse.setToNextLevel(this.getToNextLevel());
+        userResponse.setClassId(this.getCharacterclass().getId());
+        userResponse.setProfilePic(this.getProfilePic());
+        userResponse.setBannerPic(this.getBannerPic());
+        return userResponse;
     }
 }

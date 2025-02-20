@@ -1,3 +1,8 @@
+@font-face {
+  font-family: KHFont;
+  src: url('../../assets/fonts/Kingdom_Hearts_Font.ttf');
+}
+
 .NavBar {
     width : 100%;
     height : 100px;
@@ -5,7 +10,10 @@
     display : flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    position : fixed;
+    top : 0px;
+    left : 0px;
+    z-index : 2000;
 }
 
 .NavBarContainer {
@@ -13,8 +21,8 @@
     height : 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .SiteLogoContainer {
@@ -24,7 +32,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    justify-self: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centers it exactly */
 }
+
 
 .SiteLogoContainer img {
     object-fit: contain;
@@ -37,4 +50,75 @@
     padding-top: 2px;
     padding-bottom: 2px;
     background-color: white;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 100px;
+    z-index : 2000;
+}
+
+.DrawerTrigger {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.DrawerLine {
+  background-color: white;
+  padding: 5px 30px 5px 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.Drawer {
+  position: fixed;
+  width : 100%;
+  height : 100%;
+  z-index : 1000;
+  top: 0px;
+  left: 0px;
+}
+
+.Background {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.OuterDrawerContainer {
+  background-color: black;
+  width : 30%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.InnerDrawerContainer {
+  width : 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.DrawerItem {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: KHFont;
+
+}
+
+.DrawerItem:hover {
+  color: blueviolet;
 }
