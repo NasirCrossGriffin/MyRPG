@@ -16,6 +16,8 @@ import myrpg.backend.api.model.Class;
 import myrpg.backend.api.model.User;
 import myrpg.backend.api.repository.ClassRepository;
 import myrpg.backend.api.repository.UserRepository;
+import jakarta.servlet.http.HttpSession;
+import myrpg.backend.service.SessionService;
 
 @Service
 public class UserService {
@@ -24,9 +26,12 @@ public class UserService {
 
     private final ClassRepository classRepository;
 
-    public UserService(UserRepository userRepository, ClassRepository classRepository) {
+    private final SessionService sessionService;
+
+    public UserService(UserRepository userRepository, ClassRepository classRepository, SessionService sessionService) {
         this.userRepository = userRepository;
         this.classRepository = classRepository;
+        this.sessionService = sessionService;
     }
 
     public List<UserResponse> getUser() {
@@ -49,7 +54,7 @@ public class UserService {
         return retrievedUser.createResponse();
     }
     
-    public UserResponse createUser(UserRequest request) {
+    public UserResponse createUser(UserRequest request, HttpSession session) {
         Class characterclass = classRepository.findById(request.getClassId())
         .orElseThrow(() -> new RuntimeException("Class not found with ID: " + request.getClassId()));
 
@@ -71,6 +76,8 @@ public class UserService {
         User userEntity = userRepository.save(newUser);
 
 
+        this.sessionService.createSession(session, userEntity);
+
         return userEntity.createResponse();
     }
 
@@ -79,7 +86,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public ResponseEntity<String> authenticate(AuthenticationRequest authenticationRequest) {
+    public UserResponse authenticate(AuthenticationRequest authenticationRequest, HttpSession session) {
         System.out.println("Authenticate user route Accessed.");
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
@@ -90,12 +97,24 @@ public class UserService {
             String hashedPassword = user.getPassword(); 
             boolean isMatch = passwordEncoder.matches(password, hashedPassword);
             if (isMatch == true) {
-                return ResponseEntity.ok("User Authenticated");
+                this.sessionService.createSession(session, user);
+                return user.createResponse();
             } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Wrong password");
+                return null;
             }  
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            return null;
         }
+    }
+
+    public UserResponse checkIfLoggedIn(HttpSession session) {
+        System.out.println("Check if logged in route accessed.");
+        UserResponse userResponse = this.sessionService.getSession(session);
+        System.out.println(userResponse);
+        return userResponse;
+    }
+
+    public void logOut(HttpSession session) {
+        this.sessionService.invalidateSession(session);
     }
 }

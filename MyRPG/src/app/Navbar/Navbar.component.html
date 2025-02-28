@@ -12,6 +12,16 @@
           <img src="/MyRPG.png">
       </div>
     </div>
+
+    <div *ngIf="user != null" class="iconandcategory">
+      <a [routerLink]="'/adventurer/' + user.id">
+      <button class="userbutton">
+        <div class="iconcontainer">
+          <img [src]="user.profilePic" />
+        </div>
+      </button>
+      </a>
+    </div>
 </div>
 <div class="NavBarSeparator"></div>
 
@@ -24,12 +34,15 @@
       </a>
 
       <a routerLink="/signup">
-        <button class="DrawerItem" >Signup</button>
+        <button class="DrawerItem" *ngIf="user == null">Signup</button>
       </a>
 
       <a routerLink="/login">
-        <button class="DrawerItem" >Login</button>
+        <button class="DrawerItem" *ngIf="user == null">Login</button>
       </a>
+
+      <button class="DrawerItem" *ngIf="user != null" (click)="logoutSubmitHandler()">Logout</button>
+
     </div>
   </div>
 </div>

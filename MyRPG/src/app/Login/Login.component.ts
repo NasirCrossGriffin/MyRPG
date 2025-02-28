@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import {getUserById, User, authenticateUser} from "../Middleware/User";
 
 
 @Component ({
@@ -14,6 +15,9 @@ import { RouterModule } from '@angular/router';
 export class LoginComponent {
     username : string = "";
     password : string = "";
+    user : any;
+    constructor(private router: Router) {}
+
 
     BASE_URL : string = environment.BASE_URL;
 
@@ -28,21 +32,19 @@ export class LoginComponent {
     }
 
     async authenticate() {
-        console.log(this.username);
-        console.log(this.password);
+      console.log(this.username);
+      console.log(this.password);
 
-        const authentication = {
-            username : this.username,
-            password : this.password
-        }
+      this.user = await authenticateUser(this.username, this.password);
 
-        const authenticationresponse = await fetch(`${this.BASE_URL}/api/users/authenticate` ,{ 
-            headers : {'Content-Type': 'application/json'},
-            method : 'POST',
-            body: JSON.stringify(authentication)
-        })
+      console.log(this.user)
 
-        
-        console.log(await authenticationresponse.text())
+      if (this.user) {
+        this.router.navigate(['/adventurer', this.user.id]); // Navigates to /user/:id
+      } else {
+        return null;
+      }
+
+      return null;
     }
 }

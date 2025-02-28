@@ -1,5 +1,9 @@
 package myrpg.backend.api.model;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -7,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
@@ -23,7 +28,10 @@ import myrpg.backend.api.dto.UserResponse;
         @UniqueConstraint(columnNames = "subclass") 
     }
 )
-public class User {
+public class User implements Serializable {  // ✅ Make User serializable
+
+    private static final long serialVersionUID = 1L; // ✅ Recommended for versioning
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
     private Long id;
@@ -52,12 +60,14 @@ public class User {
     
     @Column(name = "banner_pic", nullable = false, unique = false)
     private String bannerPic;
+
+    @OneToMany(mappedBy = "uploader")
+    private Set<Quest> quests = new HashSet<>();
     
     public User() {
 
     }
 
-    
     public long getId() {
         return this.id;
     }
@@ -143,4 +153,19 @@ public class User {
         userResponse.setBannerPic(this.getBannerPic());
         return userResponse;
     }
+
+    @Override
+public String toString() {
+    return "User{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            ", password='[PROTECTED]'" + // Masking password for security
+            ", email='" + email + '\'' +
+            ", level=" + level +
+            ", toNextLevel=" + toNextLevel +
+            ", characterclass=" + (characterclass != null ? characterclass.getId() : "null") +
+            ", profilePic='" + profilePic + '\'' +
+            ", bannerPic='" + bannerPic + '\'' +
+            '}';
+}
 }

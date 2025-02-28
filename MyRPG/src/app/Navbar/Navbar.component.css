@@ -119,6 +119,52 @@
 
 }
 
+.iconandcategory {
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  left: 98%;
+  transform: translateX(-98%);
+  font-size: 25px;
+  margin-left: 1%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.iconcontainer {
+  width : 80px;
+  height : 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgb(27, 27, 27);
+  margin-right: 1%;
+}
+
+.iconcontainer img {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+
+
 .DrawerItem:hover {
   color: blueviolet;
+}
+
+.userbutton {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.logout {
+
 }

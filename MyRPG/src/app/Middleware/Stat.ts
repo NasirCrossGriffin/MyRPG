@@ -41,7 +41,7 @@ export async function getStatsByClassId(classId : String) {
     })
 
     if (statresponse.ok) {
-      console.log("Stat created successfully")
+      console.log("Stat retrieved successfully")
       const listofstats = await statresponse.json();
       return listofstats;
     } else {

@@ -87,4 +87,19 @@ public class UserResponse {
         this.bannerPic = bannerPic;
     }
 
+    @Override
+    public String toString() {  
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", level=" + level +
+                ", toNextLevel=" + toNextLevel +
+                ", classId=" + classId +
+                ", profilePic='" + profilePic + '\'' +
+                ", bannerPic='" + bannerPic + '\'' +
+                '}';
+    }
+
 }

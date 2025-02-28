@@ -1,0 +1,25 @@
+<div class="NewQuestPage">
+    <div class="NewQuestContainer">
+        <form>
+            <label for="name">Enter title of your quest</label>
+            <input type="text" class="name" name="name" (change)="updateName($event)"/>
+            <label for="description">Enter description of your quest</label>
+            <input type="text" class="description" name="description" (change)="updateDescription($event)"/>
+            <label for="description">Enter description of your quest</label>
+            <input type="file" class="content" name="content" (change)="uploadQuestContent($event)"/>
+        </form>
+    </div>
+
+    <div class="QuestContentContainer" *ngIf="questContent.length > 0" >
+        <div *ngFor="let entry of questContentEntries">
+            <div class="QuestContent" id={{entry[0]}}>
+                <img *ngIf="entry[1].type === 'image'" src={{entry[1].url}} />
+                <video *ngIf="entry[1].type === 'video'" controls width="250">
+                    <source src={{entry[1].url}} type={{entry[1].file.type}}/>
+                </video>
+              </div>
+          </div>
+    </div>
+</div>
+
+<button class="submit" (click)="submitHandler()">Submit</button>

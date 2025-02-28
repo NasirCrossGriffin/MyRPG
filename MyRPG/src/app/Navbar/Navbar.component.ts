@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import {createUser, User, checkLoggedIn, logOutUser} from "../Middleware/User"
+
 
 @Component ({
     selector: 'app-navbar',
@@ -12,9 +14,28 @@ import { RouterModule } from '@angular/router';
 
 export class NavBarComponent {
   drawerVisibility : boolean = false;
+  user : any = checkLoggedIn
+  constructor(private router: Router) {}
+
+
+  async ngOnInit() {
+    this.user = await checkLoggedIn()
+
+    if (this.user != null) {
+      console.log(this.user)
+    }
+  }
 
   updateDrawerVisibility() {
     this.drawerVisibility = !(this.drawerVisibility)
+  }
+
+  async logoutSubmitHandler() {
+    var logged_out = false;
+    logged_out = await logOutUser();
+    if (logged_out) {
+      this.router.navigate(['/login']); // Navigates to /user/:id
+    }
   }
 }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.servlet.http.HttpSession;
 
 import myrpg.backend.api.dto.AuthenticationRequest;
 import myrpg.backend.api.dto.UserRequest;
@@ -44,8 +45,8 @@ public class UserController {
    
     @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
     @PostMapping("/api/users")
-    public UserResponse createUser(@RequestBody UserRequest request) {
-        return userService.createUser(request);
+    public UserResponse createUser(@RequestBody UserRequest request, HttpSession session) {
+        return userService.createUser(request, session);
     }
 
     @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
@@ -56,7 +57,20 @@ public class UserController {
     
     @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
     @PostMapping("/api/users/authenticate")
-    public ResponseEntity<String> authenticateUser(@RequestBody AuthenticationRequest authenticationRequest) {
-        return userService.authenticate(authenticationRequest);
+    public UserResponse authenticateUser(@RequestBody AuthenticationRequest authenticationRequest, HttpSession session) {
+        return userService.authenticate(authenticationRequest, session);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
+    @PostMapping("/api/users/logout")
+    public ResponseEntity<String> logOut(HttpSession session) {
+        userService.logOut(session);
+        return ResponseEntity.ok("Logged out successfully");
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
+    @PostMapping("/api/users/check")
+    public UserResponse checkLoggedIn(HttpSession session) {
+        return userService.checkIfLoggedIn(session);
     }
 }
