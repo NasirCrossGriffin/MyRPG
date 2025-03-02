@@ -1,0 +1,177 @@
+@font-face {
+    font-family: KHFont;
+    src: url('../../assets/fonts/Kingdom_Hearts_Font.ttf');
+}
+
+.QuestPage {
+    width: 100%;
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.QuestContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigator {
+    background-color: rgb(30, 30, 30, 1);
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-x: scroll;
+}
+
+.IndexButton {
+    border-radius: 50%;
+    border-color: rgb(27, 27, 27, 1);
+    border-width: 5px;
+    background-color: white;
+    width : 50px;
+    height : 50px;
+    margin-left : 25px;
+    margin-right : 25px
+}
+
+.QuestImageContainer {
+    width: 800px;
+    height : 800px;
+    background-color: rgb(27, 27, 27, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.QuestImageContainer img {
+    width : 100%;
+    height : 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+.QuestImageContainer video {
+    width : 100%;
+    height : 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+.DescriptionContainer {
+    background-color: rgb(30, 30, 30, 1);
+    width : 800px;
+    height : fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color : white;
+    font-size: 20px;
+}
+
+.QuestTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: KHFont;
+    font-size : 120px;
+    margin : 0px 0px 0px 0px;
+    width: 800px;
+    height: fit-content;
+    font-weight: normal;
+}
+
+.iconandcategory {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px;
+    margin-left: 1%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: KHFont;
+    font-size: 50px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.iconandcategory:hover {
+    color : white;
+}
+
+.iconcontainer {
+    width : 100px;
+    height : 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(27, 27, 27);
+    margin-right: 1%;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 5px;
+}
+
+.iconcontainer img {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width : 100%;
+    height : 100%;
+    object-fit: contain;
+}
+
+.loadingscreen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+  
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Vertical scrollbar */
+    height: 10px; /* Horizontal scrollbar */
+  }
+  
+  /* Track (the area where the scrollbar sits) */
+  ::-webkit-scrollbar-track {
+    background: rgb(30, 30, 30, 1); /* Light gray background */
+  }
+  
+  /* Scrollbar Handle (the moving part) */
+  ::-webkit-scrollbar-thumb {
+    background: #555; /* Darker gray */
+    min-width: 5px;
+    max-width: 10px;
+  
+  }
+  
+  /* Scrollbar Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #afafaf; /* Even darker on hover */
+  }
+  

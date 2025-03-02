@@ -1,24 +1,30 @@
 <div class="NewQuestPage">
     <div class="NewQuestContainer">
-        <form>
+        <form class="NewQuestForm">
             <label for="name">Enter title of your quest</label>
             <input type="text" class="name" name="name" (change)="updateName($event)"/>
             <label for="description">Enter description of your quest</label>
-            <input type="text" class="description" name="description" (change)="updateDescription($event)"/>
-            <label for="description">Enter description of your quest</label>
-            <input type="file" class="content" name="content" (change)="uploadQuestContent($event)"/>
+            <textarea class="description" name="description" (change)="updateDescription($event)"></textarea>
         </form>
-    </div>
+        <p>Which stats did you improve on this quest?</p>
+        <div class="StatButtonContainer">
+          <button class="StatButton" (click)="updateStatsToChange($event)"id={{stat.name}} *ngFor="let stat of statsToChange" [style.backgroundColor]="stat.enabled ? 'blueviolet' : 'rgb(27, 27, 27)'">{{stat.name}}</button>
+        </div>
+      </div>
 
-    <div class="QuestContentContainer" *ngIf="questContent.length > 0" >
-        <div *ngFor="let entry of questContentEntries">
-            <div class="QuestContent" id={{entry[0]}}>
+    <div class="QuestContentContainer">
+      <div class="QuestContentEntriesContainer" *ngIf="questContent.length > 0">
+        <div class="QuestContentEntries" >
+            <div class="QuestContent" id={{entry[0]}} *ngFor="let entry of questContentEntries">
                 <img *ngIf="entry[1].type === 'image'" src={{entry[1].url}} />
-                <video *ngIf="entry[1].type === 'video'" controls width="250">
+                <video *ngIf="entry[1].type === 'video'" controls width="300">
                     <source src={{entry[1].url}} type={{entry[1].file.type}}/>
                 </video>
-              </div>
-          </div>
+            </div>
+        </div>
+      </div>
+      <input type="file" class="uploadbutton" #uploadbutton name="content" (change)="uploadQuestContent($event)" hidden/>
+      <img src="/UploadContent.png" class="UploadContent" (click)="uploadbutton.click()" />
     </div>
 </div>
 

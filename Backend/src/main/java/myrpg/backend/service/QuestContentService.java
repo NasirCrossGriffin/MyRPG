@@ -30,9 +30,13 @@ public class QuestContentService {
 
         List<QuestContentResponse> questContentResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < questContent.size(); i++) {
             questContentResponses.add(questContent.get(i).createResponse());
         } 
+        */
+
+        questContent.forEach(questContentIter -> questContentResponses.add(questContentIter.createResponse()));
 
         return questContentResponses;
     }
@@ -59,13 +63,18 @@ public class QuestContentService {
     }
 
     public List<QuestContentResponse> getQuestContentByQuestId(Long questId) {
-    List<QuestContent> questContent = questContentRepository.findQuestContentByQuestId(questId);
+        List<QuestContent> questContent = questContentRepository.findQuestContentByQuestId(questId);
 
-    List<QuestContentResponse> questContentResponses = new ArrayList<>();
+        List<QuestContentResponse> questContentResponses = new ArrayList<>();
 
-    for (int i = 0; i < questContent.size(); i++) {
-        questContentResponses.add(questContent.get(i).createResponse());
-    } 
+        /* 
+        for (int i = 0; i < questContent.size(); i++) {
+            questContentResponses.add(questContent.get(i).createResponse());
+        } 
+        */
+
+        questContent.forEach(questContentIter -> questContentResponses.add(questContentIter.createResponse()));
+
         return questContentResponses;        
     }
 

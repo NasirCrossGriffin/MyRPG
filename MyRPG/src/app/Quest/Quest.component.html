@@ -1,6 +1,29 @@
-<div class="QuestPage">
+<div class="QuestPage" *ngIf="loaded === true">
 	<div class="QuestContainer">
+		<a [routerLink]="'/adventurer/' + user.id">
+			<button class="iconandcategory">
+				<div class="iconcontainer">
+				<img [src]="user.profilePic" />
+				</div>
+				<p>{{user.username}}</p>
+			</button>
+		</a>
+		<h1 class="QuestTitle">{{quest.name}}</h1>
+		<div class="navigator">
+			<button (click)="changeIndex($event)" id={{index}} *ngFor="let i of [].constructor(questContent.length); let index = index" class="IndexButton"></button>
+		</div>
 		<div class="QuestImageContainer">
-		<img src={QuestImages[index]}/>
-	</div>
+			<img *ngIf="questContent[questContentIndex].type === 'image'" src={{questContent[questContentIndex].contentUrl}} />
+			<video *ngIf="questContent[questContentIndex].type === 'video'" controls width="300">
+				<source src={{questContent[questContentIndex].contentUrl}}/>
+			</video>
+		</div>
+		<div class="DescriptionContainer">
+			<p>{{quest.description}}</p>
+		</div>
+  </div>
+</div>
+
+<div class="loadingscreen" *ngIf="loaded === false">
+    <img [src]="loadingimage"/>
 </div>

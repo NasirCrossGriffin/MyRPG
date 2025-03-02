@@ -31,6 +31,29 @@ export async function createStat(protoStat : Stat) {
   }
 }
 
+export async function patchStat(protoStat : any) {
+  console.log(JSON.stringify(protoStat))
+
+  try {
+    const statresponse = await fetch (`${BASE_URL}/api/stat`,{
+      headers : {"content-type" : "application/json"},
+      method : "PATCH",
+      body : JSON.stringify(protoStat)
+    })
+
+    if (statresponse.ok) {
+      console.log("Stat created successfully")
+      const newStat = await statresponse.json();
+      return newStat;
+    } else {
+      return null;
+    }
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
 export async function getStatsByClassId(classId : String) {
   console.log("The class id specified is " + classId)
 

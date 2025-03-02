@@ -30,9 +30,14 @@ public class StatService {
         
         List<StatResponse> statResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < stats.size(); i++) {
             statResponses.add(stats.get(i).createResponse());
-        } 
+        }
+        */
+        
+        stats.forEach(stat -> statResponses.add(stat.createResponse()));
+
 
         return statResponses;
     }
@@ -49,9 +54,14 @@ public class StatService {
         List<Stat> stats = statRepository.findStatsByClassId(classId);
         List<StatResponse> statResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < stats.size(); i++) {
             statResponses.add(stats.get(i).createResponse());
         } 
+        */
+
+        stats.forEach(stat -> statResponses.add(stat.createResponse()));
+
         return statResponses;
     }
     
@@ -67,6 +77,23 @@ public class StatService {
 
         System.out.println("Create stat route Accessed.");
         Stat statEntity = statRepository.save(newStat);
+        
+        return statEntity.createResponse();
+    }
+
+    public StatResponse updateStat(StatResponse request) {
+        Class characterclass = classRepository.findById(request.getClassId())
+        .orElseThrow(() -> new RuntimeException("Class not found"));
+
+        Optional<Stat> stat = statRepository.findById(request.getId());
+        Stat retrievedStat = stat.orElseThrow(() -> new RuntimeException("Stat not found with ID: " + request.getId()));
+
+        retrievedStat.setName(request.getName());
+        retrievedStat.setValue(request.getValue());
+        retrievedStat.setClassObj(characterclass);
+
+        System.out.println("Create stat route Accessed.");
+        Stat statEntity = statRepository.save(retrievedStat);
         
         return statEntity.createResponse();
     }

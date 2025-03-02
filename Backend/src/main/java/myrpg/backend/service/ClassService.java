@@ -24,9 +24,13 @@ public class ClassService {
 
         List<ClassResponse> classResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < classes.size(); i++) {
             classResponses.add(classes.get(i).createResponse());
         } 
+        */
+
+        classes.forEach(thisClass -> classResponses.add(thisClass.createResponse()));
 
         return classResponses;
     }

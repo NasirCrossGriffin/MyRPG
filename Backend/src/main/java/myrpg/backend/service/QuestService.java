@@ -30,9 +30,13 @@ public class QuestService {
 
         List<QuestResponse> questResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < quests.size(); i++) {
             questResponses.add(quests.get(i).createResponse());
         } 
+        */
+
+        quests.forEach(quest -> questResponses.add(quest.createResponse()));
 
         return questResponses;
     }
@@ -64,9 +68,13 @@ public class QuestService {
 
         List<QuestResponse> questResponses = new ArrayList<>();
 
+        /* 
         for (int i = 0; i < quests.size(); i++) {
             questResponses.add(quests.get(i).createResponse());
         } 
+        */
+
+        quests.forEach(quest -> questResponses.add(quest.createResponse()));
 
         return questResponses;        
     }

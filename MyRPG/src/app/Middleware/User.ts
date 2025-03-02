@@ -34,6 +34,27 @@ export async function createUser(protoUser : User) {
   }
 }
 
+export async function patchUser(protoUser : any) {
+  try {
+    const userresponse = await fetch (`${BASE_URL}/api/users`,{
+      headers : {"content-type" : "application/json"},
+      method : "PATCH",
+      credentials: 'include',  // Crucial to send cookies
+      body : JSON.stringify(protoUser)
+    })
+
+    if (userresponse.ok) {
+      const newUser = await userresponse.json();
+      return newUser;
+    } else {
+      return null;
+    }
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
 export async function getUserById(userId : String) {
   try {
     const userresponse = await fetch (`${BASE_URL}/api/users/${userId}`,{
@@ -81,6 +102,8 @@ export async function authenticateUser(usernameParam : string, passwordParam : s
       username : username,
       password : password
   }
+
+  console.log(authentication);
 
     const userresponse = await fetch (`${BASE_URL}/api/users/authenticate`,{
       headers : {"content-type" : "application/json"},

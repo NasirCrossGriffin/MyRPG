@@ -3,12 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import jakarta.servlet.http.HttpSession;
 import myrpg.backend.api.dto.AuthenticationRequest;
 import myrpg.backend.api.dto.UserRequest;
 import myrpg.backend.api.dto.UserResponse;
@@ -16,8 +15,6 @@ import myrpg.backend.api.model.Class;
 import myrpg.backend.api.model.User;
 import myrpg.backend.api.repository.ClassRepository;
 import myrpg.backend.api.repository.UserRepository;
-import jakarta.servlet.http.HttpSession;
-import myrpg.backend.service.SessionService;
 
 @Service
 public class UserService {
@@ -39,10 +36,14 @@ public class UserService {
         List<User> users = userRepository.findAll();
 
         List<UserResponse> userResponses = new ArrayList<>();
-
+        
+        /* 
         for (int i = 0; i < users.size(); i++) {
             userResponses.add(users.get(i).createResponse());
         } 
+        */
+
+        users.forEach(user -> userResponses.add(user.createResponse()));
 
         return userResponses;
     }
@@ -81,6 +82,30 @@ public class UserService {
         return userEntity.createResponse();
     }
 
+    public UserResponse updateUser(UserResponse request) {
+        Optional<User> userRef = userRepository.findById(request.getId());
+        User user = userRef.orElseThrow(() -> new RuntimeException("User not found with ID: " + request.getId()));
+        
+        Class characterclass = classRepository.findById(request.getClassId())
+        .orElseThrow(() -> new RuntimeException("Class not found with ID: " + request.getClassId()));
+
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+        user.setLevel(request.getLevel());
+        user.setToNextLevel(request.getToNextLevel());
+        user.setCharacterclass(characterclass);
+        user.setProfilePic(request.getProfilePic());
+        user.setBannerPic(request.getBannerPic());
+        user.setPassword(request.getPassword());
+        
+        System.out.println("Create user route Accessed.");
+        
+        
+        User userEntity = userRepository.save(user);
+
+        return userEntity.createResponse();
+    }
+
     public void deleteUser(Long id) {
         System.out.println("Delete user route Accessed.");
         userRepository.deleteById(id);
@@ -90,13 +115,19 @@ public class UserService {
         System.out.println("Authenticate user route Accessed.");
         String username = authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
+        System.out.println(username);
+        System.out.println(password);
         Optional<User> optionalUser = userRepository.findUserByUsername(username);
         if (optionalUser.isPresent()) {
-            User user = optionalUser.get();      
+            User user = optionalUser.get();
+            System.out.println(user);      
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String hashedPassword = user.getPassword(); 
+            System.out.println(user.getPassword());
             boolean isMatch = passwordEncoder.matches(password, hashedPassword);
+            System.out.println(isMatch); 
             if (isMatch == true) {
+                System.out.println("There's a match");
                 this.sessionService.createSession(session, user);
                 return user.createResponse();
             } else {
@@ -111,7 +142,14 @@ public class UserService {
         System.out.println("Check if logged in route accessed.");
         UserResponse userResponse = this.sessionService.getSession(session);
         System.out.println(userResponse);
-        return userResponse;
+
+        if (userResponse != null) {
+            Optional<User> user = userRepository.findById(userResponse.getId());
+            User retrievedUser = user.orElseThrow(() -> new RuntimeException("User not found with ID: " + userResponse.getId()));
+            return retrievedUser.createResponse();
+        }
+
+        return null;
     }
 
     public void logOut(HttpSession session) {

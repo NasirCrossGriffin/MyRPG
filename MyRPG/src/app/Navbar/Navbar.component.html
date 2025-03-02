@@ -43,6 +43,9 @@
 
       <button class="DrawerItem" *ngIf="user != null" (click)="logoutSubmitHandler()">Logout</button>
 
+      <a routerLink="/newquest">
+        <button class="DrawerItem" *ngIf="user != null">New Quest</button>
+      </a>
     </div>
   </div>
 </div>
