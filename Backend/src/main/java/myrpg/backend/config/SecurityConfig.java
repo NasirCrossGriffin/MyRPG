@@ -14,9 +14,9 @@ public class SecurityConfig {
             .cors(cors -> cors.disable())
             .csrf(csrf -> csrf.disable()) // Proper lambda to disable CSRF
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/**", "/static/**", "/index.html", "/assets/**", "/login", "/js/**").permitAll()
                 .requestMatchers("/api/**").permitAll()
-                .requestMatchers("/buckets/**").permitAll() // Permit public endpoints
-                .anyRequest().authenticated() // Require authentication for others
+                .anyRequest().permitAll()// Require authentication for others
             ).sessionManagement(session -> session
             .sessionFixation().none() // Disables session fixation protection
             ) 

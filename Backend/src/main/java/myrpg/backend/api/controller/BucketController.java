@@ -1,32 +1,26 @@
 package myrpg.backend.api.controller;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
-import software.amazon.awssdk.services.s3.model.Bucket;
-import java.util.List;
-import java.io.*;
-import io.awspring.cloud.s3.S3Template;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import java.util.stream.Collectors;
+
+import io.awspring.cloud.s3.S3Template;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.Bucket;
+import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
 
 
 
 @RestController
-@RequestMapping("/buckets")
+@RequestMapping("/api/buckets")
 public class BucketController {
     private final S3Client s3Client;
     private final S3Template s3Template;
