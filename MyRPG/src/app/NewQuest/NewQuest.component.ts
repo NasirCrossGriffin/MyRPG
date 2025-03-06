@@ -11,12 +11,13 @@ import { CommonModule } from '@angular/common';
 @Component ({
     selector : "app-newquest",
     imports : [CommonModule],
+    standalone: true,
     templateUrl : 'NewQuest.component.html' ,
     styleUrls : ['NewQuest.component.css']
 })
 
 export class NewQuestComponent {
-  user : any;
+  user : any = null;
   stats : any = [];
   statsToChange : any = [];
   name : string = "";
@@ -173,5 +174,9 @@ export class NewQuestComponent {
     console.log(protoUser)
 
     var patchedUser = await patchUser(protoUser)
+
+    if (newQuest) {
+      this.router.navigate(['/quest', newQuest.id]); // Navigates to /user/:id
+    }
   }
 }

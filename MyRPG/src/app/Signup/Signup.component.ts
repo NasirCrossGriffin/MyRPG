@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { CommonModule } from '@angular/common';
 import {createCharacterClass, characterClass} from "../Middleware/Class";
+import { Router, RouterModule } from '@angular/router';
 import {createStat, Stat} from "../Middleware/Stat"
 import {createUser, User} from "../Middleware/User"
 import {createBucketObject} from "../Middleware/Bucket"
@@ -20,7 +21,7 @@ export class SignupComponent {
 	username : string = "";
 	password : string = "";
 	email : string = "";
-	class : string = "Warriors";
+	class : string = "Warrior";
   profilepic : File | null = null;
   bannerpic : File | null = null;
   profilePicURL : string = "";
@@ -28,10 +29,7 @@ export class SignupComponent {
   stats : Stat[] = [];
   warrior : string[] = ["Strength", "Speed", "Stamina", "Skill"]
   scholar : string[] = ["Math", "Science", "History", "Language"]
-
-
-
-	BASE_URL : string = environment.BASE_URL;
+  constructor(private router: Router) {}
 
 	updateUsername(e: Event) {
     console.log("Update username accessed")
@@ -83,7 +81,6 @@ export class SignupComponent {
 	}
 
 	async submitHandler () {
-    console.log(this.BASE_URL);
     console.log("Button press registered");
 
     const characterclass : characterClass = {
@@ -167,7 +164,17 @@ export class SignupComponent {
       return;
     }
 
-    console.log("user, " + newUser.username + " was created successfully"
-    )
+    console.log("user, " + newUser.username + " was created successfully")
+
+    if (newUser) {
+      this.router.navigateByUrl(`/adventurer/${newUser.id}`).then(() => {
+        window.location.reload();
+      });
+      //this.router.navigate(['/adventurer', this.user.id]); // Navigates to /user/:id
+    } else {
+      return null;
+    }
+
+    return newUser;
 	}
 }

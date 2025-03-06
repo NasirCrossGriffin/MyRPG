@@ -49,8 +49,8 @@ public class BucketController {
             s3Template.upload("my.rpg.bucket", objectKey, file.getInputStream());
             
             // Use virtual-hosted-style URL
-            String fileUrl = String.format("https://%s.s3.%s.amazonaws.com/%s", 
-                                           "my.rpg.bucket", "us-east-1", objectKey);
+            String fileUrl = String.format("https://s3.%s.amazonaws.com/%s/%s", 
+                                       "us-east-1", "my.rpg.bucket", objectKey);
             return fileUrl;
         } catch (IOException e) {
             return "File upload failed: " + e.getMessage();

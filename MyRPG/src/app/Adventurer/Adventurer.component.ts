@@ -1,14 +1,16 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { environment } from '../../environments/environment';
 import {getStatsByClassId, Stat} from "../Middleware/Stat";
 import {getUserById, User} from "../Middleware/User";
 import {getCharacterClassById, characterClass} from "../Middleware/Class"
+import { getQuestByUserId } from '../Middleware/Quest';
+import { getQuestContentByQuestId } from '../Middleware/QuestContent';
 
 @Component ({
     selector: 'app-adventurer',
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     standalone: true,
     templateUrl: './Adventurer.component.html',
     styleUrls: ["./Adventurer.component.css"],
@@ -27,7 +29,8 @@ export class AdventurerComponent {
     user : any;
     characterClass : any;
     stats : any;
-    BASE_URL : string = environment.BASE_URL;
+    listOfQuests : any = [];
+
 
     constructor(private route: ActivatedRoute, private cdRef: ChangeDetectorRef) {}
 
@@ -56,10 +59,30 @@ export class AdventurerComponent {
 
         this.stats = await getStatsByClassId(this.characterClass.id)
 
+        console.log(this.stats);
+
         if (this.stats === null) {
           console.log("Could not retrieve character class stats")
           return
         }
+
+        //Populate the quest list
+
+        var questObjects = await getQuestByUserId(this.userId);
+
+        console.log(questObjects);
+
+        for (let quest of questObjects) {
+          var questContent = await getQuestContentByQuestId(quest.id)
+          this.listOfQuests.push({
+            questId : quest.id,
+            questTitle : quest.name,
+            questPreview : questContent[0].contentUrl,
+            questPreviewType : questContent[0].type
+          })
+        }
+
+        console.log(this.listOfQuests)
 
         this.loaded = true;
 

@@ -3,6 +3,22 @@
   src: url('../../assets/fonts/Kingdom_Hearts_Font.ttf');
 }
 
+.Adventurer_Page {
+  height : fit-content
+}
+
+@media (max-width : 767px) {
+  .Adventurer_Page {
+    margin-top: 50px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .Adventurer_Page {
+    margin-top: 120px;
+  }  
+}
+
 .Adventurer_View {
     width : 100%;
     height : 100%;
@@ -23,12 +39,24 @@
 }
 
 .Stat_Bar {
-    height : 20px;
-    width : 150px;
     background-color: grey;
     border-color: rgb(56, 56, 56);
     border-width: 2px;
     border-style: solid;
+}
+
+@media (max-width : 767px) {
+  .Stat_Bar {
+    height : 20px;
+    width : 75px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .Stat_Bar {
+    height : 20px;
+    width : 150px;
+  }  
 }
 
 .Stat_Amount {
@@ -40,17 +68,29 @@
   display : flex;
   flex-direction: row;
   align-items: center;
-  font-size: 25px;
   margin-left: 1%;
-  margin-top: 15px;
-  margin-bottom: 15px;
   font-family: KHFont;
-  font-size: 50px;
+
+}
+
+@media (max-width : 767px) {
+  .iconandcategory {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 25px;
+    height: fit-content;
+  } 
+}
+
+@media (min-width : 768px) {
+  .iconandcategory {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 50px;
+  }  
 }
 
 .iconcontainer {
-  width : 100px;
-  height : 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,6 +99,20 @@
   overflow: hidden;
   background-color: rgb(27, 27, 27);
   margin-right: 1%;
+}
+
+@media (max-width : 767px) {
+  .iconcontainer {
+    width : 50px;
+    height : 50px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .iconcontainer {
+    width : 100px;
+    height : 100px;
+  }  
 }
 
 .iconcontainer img {
@@ -79,6 +133,18 @@
   padding: 0px 25px 0px 25px;
 }
 
+@media (max-width : 767px) {
+  .sectionSeparator {
+    width : 50%;
+  } 
+}
+
+@media (min-width : 768px) {
+  .sectionSeparator {
+    width : 100%;
+  }
+}
+
 .statsSection {
   width : 100%;
   height: fit-content;
@@ -91,6 +157,18 @@
   box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
   margin-bottom: 25px;
   margin-top: 0;
+}
+
+@media (max-width : 767px) {
+  .statsSection {
+    width : 50%;
+  } 
+}
+
+@media (min-width : 768px) {
+  .statsSection {
+    width : 100%;
+  }  
 }
 
 .bannerPicContainer{
@@ -124,22 +202,47 @@
 .lvliconandlevel {
   display : flex;
   flex-direction: row;
-  align-items: center;
-  font-size: 25px;
+  align-items: center;  
+  font-family: KHFont;
+
   margin-left: 1%;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
+@media (max-width : 767px) {
+  .lvliconandlevel {
+    font-size: 25px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .lvliconandlevel {
+    font-size: 45px;
+  }  
+}
+
 .lvliconcontainer {
-  width : 100px;
-  height : 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   margin-right: 1%;
+}
+
+@media (max-width : 767px) {
+  .lvliconcontainer {
+    width : 50px;
+    height : 50px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .lvliconcontainer {
+    width : 100px;
+    height : 100px;
+  }  
 }
 
 .lvliconcontainer img {
@@ -160,9 +263,7 @@
   align-items: center;
 }
 
-.Adventurer_Page {
-  margin-top: 120px;
-}
+
 
 .Stat_Name, .Stat_Value {
   font-family: KHFont;
@@ -171,12 +272,120 @@
   margin-bottom: 0;
 }
 
-.class_title {
-  font-family: KHFont;
-  font-size: 60px;
+@media (max-width : 767px) {
+  .Stat_Name, .Stat_Value {
+    font-size: 25px;
+  } 
 }
 
-.lvliconandlevel {
+@media (min-width : 768px) {
+  .Stat_Name, .Stat_Value {
+    font-size: 45px;
+  }  
+}
+
+.class_title {
   font-family: KHFont;
-  font-size: 45px;
+
+}
+
+@media (max-width : 767px) {
+  .class_title {
+    font-size: 30px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .class_title {
+    font-size: 60px;
+  }  
+}
+
+.QuestGrid {
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: grid;
+  gap: 50px 50px;
+  width : 100;
+  justify-content: center;
+}
+
+@media (max-width : 1439px) {
+  .QuestGrid {
+    grid-template-columns: 1fr;
+  } 
+}
+
+@media (min-width : 1440px) {
+  .QuestGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }  
+}
+
+.QuestPreviewContainer {
+  width: 300px;
+  height : 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(27, 27, 27, 1);
+}
+
+.QuestPreviewContainer img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.QuestPreviewContainer video {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.QuestContainer {
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.QuestContainer button {
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(27, 27, 27, 1);
+  color: white;
+  border-radius: 5px;
+  border-width: 5px;
+  border-color: black;
+  text-decoration: none;
+}
+
+.QuestTitleContainer {
+  font-family: KHFont;
+  font-size: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  max-width: 300px;
+  text-decoration: none;
+}
+
+@media (max-width : 767px) {
+  .loadingscreen img{
+      width: 50%;
+      height : 50%;
+  } 
+}
+
+@media (min-width : 768px) {
+  .loadingscreen img{
+
+  } 
 }

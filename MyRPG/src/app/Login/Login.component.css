@@ -4,25 +4,49 @@
 }
 
 .LoginPage {
-    width : 100%;
-    height : 70%;
+  width : 100%;
+  height : 70%;
+  margin-top: 120px;
+}
+
+@media (min-width : 390px) {
+  .LoginPage {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width : 768px) {
+  .LoginPage {
+    align-items: flex-start;
+    justify-content: space-between;
     display : flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 120px;
+  }
 }
 
 .LoginFormContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgb(27, 27, 27);
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
-    margin-left: 25px;
-    width : 100%;
-    height : fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(27, 27, 27);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.5);
+  width : 100%;
+  height : fit-content;
+  z-index : 1000;
+}
 
+@media (min-width : 390px) {
+  .LoginFormContainer {
+    position: absolute;
+  }
+}
+
+@media (min-width : 768px) {
+  .LoginFormContainer {
+    position: relative;
+    margin-left: 25px;
+  }
 }
 
 .LoginContainer {
@@ -31,8 +55,25 @@
     justify-content: center;
     align-items: center;
     margin-top: 7%;
+    z-index: 1000;
+}
+
+@media (max-width : 767px) {
+  .LoginContainer {
+    position : absolute;
+    top : 70%;
+    width : 80%;
+    height :80%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+  }
+}
+
+@media (min-width : 768px) {
+  .LoginContainer {
     width : 40%;
     height :80%;
+  }
 }
 
 .LogoContainer {
@@ -42,6 +83,12 @@
     align-items: center;
     width : 100%;
     height: 20%;
+}
+
+@media (max-width : 767px) {
+  .LogoContainer {
+    margin-bottom : 125%;
+  }
 }
 
 .LogoContainer img {
@@ -95,11 +142,22 @@ label {
 .Authenticate {
     border-color: transparent;
     background-color: blueviolet;
-    width : 20%;
+    width : 30%;
     height : 50px;
     border-radius: 10px;
     font-family: KHFont;
+}
+
+@media (max-width : 767px) {
+  .Authenticate {
+    font-size: 30px;
+  }
+}
+
+@media (min-width : 768px) {
+  .Authenticate {
     font-size: 50px;
+  }
 }
 
 .Authenticate:hover {
@@ -107,13 +165,31 @@ label {
 }
 
 .YukiContainer {
-    width : 30%;
-    height : 125%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    height : 125%;
+    z-index : 100;
 }
+
+@media (max-width : 767px) {
+  .YukiContainer {
+    position: absolute;
+    width : 45%;
+    left: 100%;
+    top : 40%;
+    transform: translate(-100%, -40%);
+    visibility: hidden;
+  }
+}
+
+@media (min-width : 768px) {
+  .YukiContainer {
+    width : 30%;
+  }
+}
+
 
 .YukiContainer img {
     display: flex;
@@ -123,6 +199,7 @@ label {
     width : 100%;
     height : 100%;
     object-fit: contain;
+    z-index : 100;
 }
 
 .signup-button {
@@ -131,6 +208,13 @@ label {
     border-color: transparent;
     color : white;
     margin-top: 5%;
+}
+
+@media (max-width : 767px) {
+  .signup-button {
+    position: relative;
+    margin-top: 70%;
+  }
 }
 
 .signup-button:hover {

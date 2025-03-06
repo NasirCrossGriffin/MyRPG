@@ -14,7 +14,7 @@ public class SessionService {
     // Create a session and store an attribute
     public String createSession(HttpSession session, User user) {
         // Set a session attribute (e.g., username)
-        session.setAttribute("LOGGED_IN", user);
+        session.setAttribute("LOGGED_IN", user.getId());
 
         // Retrieve and return the session ID
         String sessionId = session.getId();
@@ -24,21 +24,21 @@ public class SessionService {
     }
 
     // Retrieve session attribute
-    public UserResponse getSession(HttpSession session) {
+    public Long getSession(HttpSession session) {
         // Get the session attribute (username)
-        User foundUser = (User) session.getAttribute("LOGGED_IN");
+        Long foundUserId = (Long) session.getAttribute("LOGGED_IN");
 
         
         // If no session exists, return an error message
-        if (foundUser == null) {
+        if (foundUserId == null) {
             System.out.println("No user session found.");
             return null;
         }
 
-        System.out.println("Found user, " + foundUser);
+        System.out.println("Found user, ID: " + foundUserId);
 
         // Return session data to the client
-        return foundUser.createResponse();
+        return foundUserId;
 
     }
 

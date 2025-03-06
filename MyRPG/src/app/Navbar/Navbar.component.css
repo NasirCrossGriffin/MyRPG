@@ -4,16 +4,27 @@
 }
 
 .NavBar {
-    width : 100%;
+  width : 100%;
+  background-color: rgb(27, 27, 27);
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+  position : fixed;
+  top : 0px;
+  left : 0px;
+  z-index : 10000;
+}
+
+@media (max-width : 767px) {
+  .NavBar {
+    height : 50px;
+  }
+}
+
+@media (min-width : 768px) {
+  .NavBar {
     height : 100px;
-    background-color: rgb(27, 27, 27);
-    display : flex;
-    flex-direction: column;
-    align-items: center;
-    position : fixed;
-    top : 0px;
-    left : 0px;
-    z-index : 2000;
+  }
 }
 
 .NavBarContainer {
@@ -53,7 +64,19 @@
     margin-bottom: 10px;
     position: fixed;
     top: 100px;
-    z-index : 2000;
+    z-index : 10000;
+}
+
+@media (max-width : 767px) {
+  .NavBarSeparator {
+    top : 50px;
+  }
+}
+
+@media (min-width : 768px) {
+  .NavBarSeparator {
+    top : 100px;
+  }
 }
 
 .DrawerTrigger {
@@ -63,10 +86,21 @@
 
 .DrawerLine {
   background-color: white;
-  padding: 5px 30px 5px 30px;
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+@media (max-width : 767px) {
+  .DrawerLine {
+    padding: 1px 15px 1px 15px;
+  }
+}
+
+@media (min-width : 768px) {
+  .DrawerLine {
+    padding: 5px 30px 5px 30px;
+  }
 }
 
 .Drawer {
@@ -76,6 +110,19 @@
   z-index : 1000;
   top: 0px;
   left: 0px;
+  z-index : 9000;
+}
+
+@media (max-width : 767px) {
+  .Drawer  {
+    top : -50px;
+  }
+}
+
+@media (min-width : 768px) {
+  .Drawer  {
+    top : 0px;
+  }
 }
 
 .Background {
@@ -87,7 +134,7 @@
 
 .OuterDrawerContainer {
   background-color: black;
-  width : 30%;
+  
   height: 100%;
   position: absolute;
   top: 100px;
@@ -96,6 +143,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width : 767px) {
+  .OuterDrawerContainer  {
+    width : 50%;
+  }
+}
+
+@media (min-width : 768px) {
+  .OuterDrawerContainer  {
+    width : 30%;
+  }
 }
 
 .InnerDrawerContainer {
@@ -130,11 +189,10 @@
   margin-left: 1%;
   margin-top: 15px;
   margin-bottom: 15px;
+  top : -12px;
 }
 
 .iconcontainer {
-  width : 80px;
-  height : 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,6 +202,21 @@
   background-color: rgb(27, 27, 27);
   margin-right: 1%;
 }
+
+@media (max-width : 767px) {
+  .iconcontainer {
+    width : 40px;
+    height : 40px;
+  }
+}
+
+@media (min-width : 768px) {
+  .iconcontainer {
+    width : 80px;
+    height : 80px;
+  }
+}
+
 
 .iconcontainer img {
   flex-direction: column;

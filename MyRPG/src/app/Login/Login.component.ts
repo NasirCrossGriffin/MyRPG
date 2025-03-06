@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Router, RouterModule } from '@angular/router';
 import {getUserById, User, authenticateUser} from "../Middleware/User";
@@ -16,10 +16,7 @@ export class LoginComponent {
     username : string = "";
     password : string = "";
     user : any;
-    constructor(private router: Router) {}
-
-
-    BASE_URL : string = environment.BASE_URL;
+    constructor(private router: Router, private cdRef: ChangeDetectorRef) {}
 
     updateUsername(event: Event) : void {
         const input = (event.target as HTMLInputElement).value;
@@ -40,7 +37,10 @@ export class LoginComponent {
       console.log(this.user)
 
       if (this.user) {
-        this.router.navigate(['/adventurer', this.user.id]); // Navigates to /user/:id
+        this.router.navigateByUrl(`/adventurer/${this.user.id}`).then(() => {
+          window.location.reload();
+        });
+        //this.router.navigate(['/adventurer', this.user.id]); // Navigates to /user/:id
       } else {
         return null;
       }

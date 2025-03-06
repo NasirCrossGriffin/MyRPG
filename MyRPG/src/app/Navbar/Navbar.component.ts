@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import {createUser, User, checkLoggedIn, logOutUser} from "../Middleware/User"
@@ -15,7 +15,7 @@ import {createUser, User, checkLoggedIn, logOutUser} from "../Middleware/User"
 export class NavBarComponent {
   drawerVisibility : boolean = false;
   user : any = checkLoggedIn
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cdRef: ChangeDetectorRef) {}
 
 
   async ngOnInit() {
@@ -35,6 +35,8 @@ export class NavBarComponent {
     logged_out = await logOutUser();
     if (logged_out) {
       this.router.navigate(['/login']); // Navigates to /user/:id
+      this.user = null;
+      this.cdRef.detectChanges();
     }
   }
 }

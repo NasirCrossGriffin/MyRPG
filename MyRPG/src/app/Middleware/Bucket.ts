@@ -6,7 +6,7 @@ export async function createBucketObject(objectFile : File) {
   var formdata = new FormData;
   formdata.append("file", objectFile)
   try {
-    const bucketresponse = await fetch (`${BASE_URL}/buckets/insert`,{
+    const bucketresponse = await fetch (`${BASE_URL}/api/buckets/insert`,{
       method : "POST",
       body : formdata
     })

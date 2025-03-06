@@ -42,6 +42,31 @@
       <img [src]="bannerPic" />
     </div>
   </div>
+
+  <div class="iconandcategory">
+    <div class="iconcontainer">
+      <img src="/quill-pen-silhouette.png" />
+    </div>
+    <p>Quest Log</p>
+  </div>
+
+  <div class="QuestGrid" *ngIf="listOfQuests.length > 0">
+    <div class="QuestContainer" *ngFor="let quest of listOfQuests">
+      <a [routerLink]="'/quest/' + quest.questId">
+        <button>
+          <div class="QuestTitleContainer">
+            <p>{{quest.questTitle}}</p>
+          </div>
+          <div class="QuestPreviewContainer">
+            <img *ngIf="quest.questPreviewType === 'image'" src={{quest.questPreview}}/>
+            <video *ngIf="quest.questPreviewType === 'video'">
+              <source src={{quest.questPreview}}/>
+            </video>
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>
 </div>
 
   <div class="loadingscreen" *ngIf="loaded === false">

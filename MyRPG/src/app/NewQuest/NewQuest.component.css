@@ -7,6 +7,18 @@
   margin-top: 120px;
 }
 
+@media (max-width : 767px) {
+  .NewQuestPage {
+    margin-top: 70px;
+  }
+}
+
+@media (min-width : 768px) {
+  .NewQuestPage {
+    margin-top: 120px;
+  }
+}
+
 .NewQuestForm {
   display: flex;
   flex-direction: column;
@@ -15,11 +27,26 @@
 }
 
 .UploadContent {
-  width: 300px;
-  height : 300px;
+  
   margin-left: 50px;
   margin-right: 50px;
 }
+
+@media (max-width : 767px) {
+  .UploadContent {
+    width: 100px;
+    height : 100px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .UploadContent {
+    width: 300px;
+    height : 300px;
+  } 
+}
+
+
 
 .QuestContentContainer {
   display: flex;
@@ -37,15 +64,30 @@
 }
 
 .QuestContent {
-  width: 300px;
-  height : 300px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
-  margin-right: 50px;
+
   background-color: rgb(27, 27, 27, 1);
+}
+
+@media (max-width : 767px) {
+  .QuestContent {
+    width: 100px;
+    height : 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .QuestContent {
+    width: 300px;
+    height : 300px;
+    margin-left: 50px;
+    margin-right: 50px;
+  } 
 }
 
 .QuestContent img {
@@ -63,11 +105,24 @@
   margin-right: 25px;
   border-radius: 50px;
   border-color: rgb(27, 27, 27, 1);
-  width: 200px;
-  height: 100px;
   font-family: KHFont;
-  font-size: 50px;
   border-style: solid;
+}
+
+@media (max-width : 767px) {
+  .submit {
+    width: 100px;
+    height: 50px;
+    font-size: 25px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .submit {
+    width: 200px;
+    height: 100px;
+    font-size: 50px;
+  } 
 }
 
 .submit:hover {
@@ -76,15 +131,30 @@
 
 .StatButton {
   color : white;
-  margin-left: 25px;
-  margin-right: 25px;
   border-radius: 50px;
   border-color: rgb(27, 27, 27, 1);
-  width: 200px;
-  height: 100px;
   font-family: KHFont;
-  font-size: 50px;
   border-style: solid;
+}
+
+@media (max-width : 767px) {
+  .StatButton {
+    width: 100px;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .StatButton {
+    width: 200px;
+    height: 100px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 50px;
+  } 
 }
 
 .StatButton:hover {
@@ -92,46 +162,130 @@
   height: 120px;
 }
 
+@media (max-width : 767px) {
+  .StatButton:hover { 
+    width: 120px;
+    height: 70px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .StatButton:hover { 
+    width: 220px;
+    height: 120px;
+  } 
+}
+
 label {
   font-family: KHFont;
-  font-size: 50px;
   margin-left: 25px;
   margin-right: 25px;
 }
+
+@media (max-width : 767px) {
+    label {
+      font-size: 25px;
+    } 
+  }
+  
+  @media (min-width : 768px) {
+    label {
+      font-size: 50px;
+    } 
+  }
 
 p {
   font-family: KHFont;
-  font-size: 50px;
   margin-left: 25px;
   margin-right: 25px;
 }
 
+@media (max-width : 767px) {
+  p {
+    font-family: KHFont;
+    font-size: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+@media (min-width : 768px) {
+  p {
+    font-family: KHFont;
+    font-size: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 input[type="text"] {
-  width : 500px;
-  height: 50px;
-  font-size: 30px;
   margin-left: 25px;
   margin-right: 25px;
   background-color: rgb(27, 27, 27, 1);
   color: white;
+}
+
+@media (max-width : 767px) {
+  input[type="text"] {
+    width : 300px;
+    height: 25px;
+    font-size: 15px;
+  } 
+}
+
+@media (min-width : 768px) {
+  input[type="text"] {
+    width : 500px;
+    height: 50px;
+    font-size: 30px;
+  } 
 }
 
 .StatButtonContainer {
   width: fit-content;
-  height: 200px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  height: fit-content;
+}
+
+@media (max-width : 767px) {
+  .StatButtonContainer {
+    font-size: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap : 10px 10px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .StatButtonContainer {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 25px;
+    margin-right: 25px;
+  } 
 }
 
 .description {
-  width : 500px;
-  height: 250px;
-  font-size: 30px;
   margin-left: 25px;
   margin-right: 25px;
   background-color: rgb(27, 27, 27, 1);
   color: white;
+}
+
+@media (max-width : 767px) {
+  .description {
+    width : 300px;
+    height: 100px;
+    font-size: 15px;
+  } 
+}
+
+@media (min-width : 768px) {
+  .description {
+    width : 500px;
+    height: 250px;
+    font-size: 30px; 
+  } 
 }
 
 /* Width of the scrollbar */

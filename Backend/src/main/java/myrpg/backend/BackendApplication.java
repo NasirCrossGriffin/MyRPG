@@ -18,13 +18,15 @@ public class BackendApplication {
 		}
 		
 		System.out.println("MyRPG is running in " + environment + " mode.");
-		// Load .env file
-        Dotenv dotenv = Dotenv.configure()
-            .directory("./")  // Adjust the path to your .env file
-            .load();
+
 
         // Set system properties for Spring Boot
         if (environment.equals("development")) {
+			// Load .env file
+			Dotenv dotenv = Dotenv.configure()
+			.directory("./")  // Adjust the path to your .env file
+			.load();
+
 			System.setProperty("ENDPOINT", dotenv.get("ENDPOINT"));
 			System.setProperty("DBUSERNAME", dotenv.get("DBUSERNAME"));
 			System.setProperty("PASSWORD", dotenv.get("PASSWORD"));

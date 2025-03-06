@@ -26,10 +26,10 @@ export class QuestComponent {
   questContentIndex : number = 0;
   mediaType: 'image' | 'video' | 'unknown' = 'unknown';
   datetime : Date = new Date();
-  
+
   constructor(
-    private route: ActivatedRoute, 
-    private cdRef: ChangeDetectorRef, 
+    private route: ActivatedRoute,
+    private cdRef: ChangeDetectorRef,
     private http: HttpClient
   ) {}
 
