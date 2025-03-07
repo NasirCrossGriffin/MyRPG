@@ -90,6 +90,7 @@
 @media (max-width : 767px) {
   .LogoContainer {
     margin-bottom : 125%;
+    visibility: hidden;
   }
 }
 
