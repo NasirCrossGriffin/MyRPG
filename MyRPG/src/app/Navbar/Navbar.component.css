@@ -130,11 +130,12 @@
   height: 100%;
   background-color: black;
   opacity: 0.8;
+  margin-top: 50px;
 }
 
 .OuterDrawerContainer {
   background-color: black;
-  
+
   height: 100%;
   position: absolute;
   top: 100px;

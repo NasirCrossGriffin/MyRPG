@@ -78,14 +78,14 @@
 }
 
 @media (max-width : 767px) {
-  .classiconcontainer {    
+  .classiconcontainer {
     width : 50px;
     height : 50px;
   }
 }
 
 @media (min-width : 768px) {
-  .classiconcontainer {    
+  .classiconcontainer {
     width : 100px;
     height : 100px;
   }
@@ -128,14 +128,14 @@
 }
 
 @media (max-width : 767px) {
-  .bannerPicContainer {    
+  .bannerPicContainer {
     width : 50px;
     height : 100px;
   }
 }
 
 @media (min-width : 768px) {
-  .bannerPicContainer {  
+  .bannerPicContainer {
     width : 100px;
     height : 200px;
   }
@@ -195,14 +195,14 @@ object-fit: contain;
 }
 
 @media (max-width : 767px) {
-  .lvliconcontainer {    
+  .lvliconcontainer {
     width : 50px;
     height : 50px;
   }
 }
 
 @media (min-width : 768px) {
-  .lvliconcontainer {  
+  .lvliconcontainer {
     width : 100px;
     height : 100px;
   }
@@ -251,13 +251,13 @@ object-fit: contain;
 }
 
 @media (max-width : 767px) {
-  .category {    
+  .category {
     font-size: 25px;
   }
 }
 
 @media (min-width : 768px) {
-  .category {  
+  .category {
     font-size: 45px;
   }
 }
@@ -272,13 +272,13 @@ object-fit: contain;
 }
 
 @media (max-width : 767px) {
-  .class {    
+  .class {
     font-size: 25px;
   }
 }
 
 @media (min-width : 768px) {
-  .class {  
+  .class {
     font-size: 45px;
   }
 }
@@ -346,11 +346,11 @@ object-fit: contain;
   .loadingscreen img{
       width: 50%;
       height : 50%;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
-  .loadingscreen img{
+  .loadingscreen img {
 
-  } 
+  }
 }

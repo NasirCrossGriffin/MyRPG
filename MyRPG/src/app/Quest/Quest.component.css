@@ -11,16 +11,16 @@
     align-items: center;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .QuestPage {
-        margin-top: 50px;
-    } 
+        margin-top: 90px;
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .QuestPage {
         margin-top: 120px;
-    }  
+    }
   }
 
 .QuestContainer {
@@ -28,6 +28,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.MainQuestContainer {
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
 }
 
 .navigator {
@@ -41,16 +52,16 @@
     overflow-x: scroll;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .navigator {
         width : 300px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .navigator {
         width : 800px;
-    }  
+    }
   }
 
 .IndexButton {
@@ -62,22 +73,22 @@
     height : 50px;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .IndexButton {
         width : 25px;
         height : 25px;
         margin-left : 5px;
         margin-right : 5px
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .IndexButton {
         width : 50px;
         height : 50px;
         margin-left : 25px;
         margin-right : 25px
-    }  
+    }
   }
 
 
@@ -89,17 +100,17 @@
     justify-content: center;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .QuestImageContainer {
         width: 300px;
         height : 300px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .QuestImageContainer {
         width : 800px;
-    }  
+    }
   }
 
 .QuestImageContainer img {
@@ -124,7 +135,6 @@
 
 .DescriptionContainer {
     background-color: rgb(30, 30, 30, 1);
-    width : 800px;
     height : fit-content;
     display: flex;
     flex-direction: row;
@@ -133,22 +143,26 @@
     color : white;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .DescriptionContainer {
-        width: 300px;
+        width: 270px;
         padding-top: 5px;
         padding-bottom: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
         font-size: 15px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .DescriptionContainer {
-        width : 800px;
+        width : 770px;
         padding-top: 10px;
         padding-bottom: 10px;
+        padding-right: 15px;
+        font-size: 15px;
         font-size: 20px;
-    }  
+    }
   }
 
 
@@ -158,23 +172,31 @@
     justify-content: center;
     align-items: center;
     font-family: KHFont;
-    margin : 0px 0px 0px 0px;
+    margin : 0px 0px 10px 0px;
     height: fit-content;
     font-weight: normal;
+    background-color: rgb(27, 27, 27, 1);
+    color: white;
+    width: fit-content;
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 50px;
+    box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .QuestTitle {
         width: 300px;
         font-size : 30px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .QuestTitle {
         width: 800px;
         font-size : 120px;
-    }  
+    }
   }
 
 .iconandcategory {
@@ -191,16 +213,16 @@
     border-color: transparent;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .iconandcategory {
         font-size: 25px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .iconandcategory {
         font-size: 50px;
-    }  
+    }
   }
 
 .iconandcategory:hover {
@@ -223,18 +245,18 @@
     border-width: 5px;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .iconcontainer {
         width : 50px;
         height : 50px;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .iconcontainer {
         width : 100px;
         height : 100px;
-    }  
+    }
   }
 
 .iconcontainer img {
@@ -255,17 +277,17 @@
     align-items: center;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
     .loadingscreen img{
         width: 50%;
         height : 50%;
-    } 
+    }
   }
-  
-  @media (min-width : 768px) {
+
+  @media (min-width : 1440px) {
     .loadingscreen img{
-        
-    } 
+
+    }
   }
 
 /* Width of the scrollbar */
@@ -273,22 +295,22 @@
     width: 10px; /* Vertical scrollbar */
     height: 10px; /* Horizontal scrollbar */
   }
-  
+
   /* Track (the area where the scrollbar sits) */
   ::-webkit-scrollbar-track {
     background: rgb(30, 30, 30, 1); /* Light gray background */
   }
-  
+
   /* Scrollbar Handle (the moving part) */
   ::-webkit-scrollbar-thumb {
     background: #555; /* Darker gray */
     min-width: 5px;
     max-width: 10px;
-  
+
   }
-  
+
   /* Scrollbar Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #afafaf; /* Even darker on hover */
   }
-  
+

@@ -9,14 +9,14 @@
 
 @media (max-width : 767px) {
   .Adventurer_Page {
-    margin-top: 50px;
-  } 
+    margin-top: 100px;
+  }
 }
 
 @media (min-width : 768px) {
   .Adventurer_Page {
     margin-top: 120px;
-  }  
+  }
 }
 
 .Adventurer_View {
@@ -33,7 +33,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 1%;
     margin-right: 50px;
     font-size: 20px;
 }
@@ -49,14 +49,14 @@
   .Stat_Bar {
     height : 20px;
     width : 75px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .Stat_Bar {
     height : 20px;
     width : 150px;
-  }  
+  }
 }
 
 .Stat_Amount {
@@ -70,7 +70,12 @@
   align-items: center;
   margin-left: 1%;
   font-family: KHFont;
-
+  width : fit-content;
+  background-color: rgb(27, 27, 27);
+  padding: 10px 10px 10px 10px;
+  border-radius: 55px;
+  color: white;
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
 }
 
 @media (max-width : 767px) {
@@ -79,7 +84,7 @@
     margin-bottom: 1px;
     font-size: 25px;
     height: fit-content;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -87,7 +92,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     font-size: 50px;
-  }  
+  }
 }
 
 .iconcontainer {
@@ -105,14 +110,14 @@
   .iconcontainer {
     width : 50px;
     height : 50px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .iconcontainer {
     width : 100px;
     height : 100px;
-  }  
+  }
 }
 
 .iconcontainer img {
@@ -136,7 +141,7 @@
 @media (max-width : 767px) {
   .sectionSeparator {
     width : 50%;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -162,18 +167,18 @@
 @media (max-width : 767px) {
   .statsSection {
     width : 50%;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .statsSection {
     width : 100%;
-  }  
+  }
 }
 
 .bannerPicContainer{
   width : 40%;
-  height : 80%;
+  height : 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,29 +202,49 @@
   justify-content: flex-start;
   align-items: center;
   margin-right: 5%;
+  height: fit-content;
 }
 
 .lvliconandlevel {
   display : flex;
   flex-direction: row;
-  align-items: center;  
+  align-items: center;
   font-family: KHFont;
-
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
   margin-left: 1%;
   margin-top: 15px;
   margin-bottom: 15px;
+  background-color: rgb(27, 27, 27, 1);
+  width : fit-content;
+  padding: 10px 10px 10px 10px;
+  border-radius: 55px;
+  color : white;
+}
+
+.ClassAndTitle {
+  background-color: rgb(27, 27, 27, 1);
+  width : fit-content;
+  height : fit-content;
+  color: white;
+  padding: 15px 15px 15px 15px;
+  border-radius: 55px;
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0.5);
+}
+
+.ClassAndTitle .iconandcategory {
+  box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0);
 }
 
 @media (max-width : 767px) {
   .lvliconandlevel {
     font-size: 25px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .lvliconandlevel {
     font-size: 45px;
-  }  
+  }
 }
 
 .lvliconcontainer {
@@ -235,14 +260,14 @@
   .lvliconcontainer {
     width : 50px;
     height : 50px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .lvliconcontainer {
     width : 100px;
     height : 100px;
-  }  
+  }
 }
 
 .lvliconcontainer img {
@@ -275,30 +300,31 @@
 @media (max-width : 767px) {
   .Stat_Name, .Stat_Value {
     font-size: 25px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .Stat_Name, .Stat_Value {
     font-size: 45px;
-  }  
+  }
 }
 
 .class_title {
   font-family: KHFont;
-
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
 
 @media (max-width : 767px) {
   .class_title {
     font-size: 30px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .class_title {
     font-size: 60px;
-  }  
+  }
 }
 
 .QuestGrid {
@@ -314,13 +340,13 @@
 @media (max-width : 1439px) {
   .QuestGrid {
     grid-template-columns: 1fr;
-  } 
+  }
 }
 
 @media (min-width : 1440px) {
   .QuestGrid {
     grid-template-columns: 1fr 1fr 1fr;
-  }  
+  }
 }
 
 .QuestPreviewContainer {
@@ -381,11 +407,11 @@
   .loadingscreen img{
       width: 50%;
       height : 50%;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .loadingscreen img{
 
-  } 
+  }
 }

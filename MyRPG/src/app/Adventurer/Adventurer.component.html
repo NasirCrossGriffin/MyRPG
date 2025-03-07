@@ -14,13 +14,15 @@
   <div class="statsandbanner">
     <div class=Adventurer_View>
       <div  class="Class_Stats">
-        <h1 class="class_title">Class </h1>
-        <div class="iconandcategory">
-          <div class="iconcontainer">
-            <img *ngIf="className === 'Warrior'" src="/sword-silhouette.png" />
-            <img *ngIf="className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
+        <div class="ClassAndTitle">
+          <h1 class="class_title">Class</h1>
+          <div class="iconandcategory">
+            <div class="iconcontainer">
+              <img *ngIf="className === 'Warrior'" src="/sword-silhouette.png" />
+              <img *ngIf="className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
+            </div>
+            <p>{{className}}</p>
           </div>
-          <p>{{className}}</p>
         </div>
         <div class="sectionSeparator"></div>
 
