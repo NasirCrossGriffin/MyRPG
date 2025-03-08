@@ -110,6 +110,7 @@
   @media (min-width : 1440px) {
     .QuestImageContainer {
         width : 800px;
+        height: 800px;
     }
   }
 
@@ -159,6 +160,7 @@
         width : 770px;
         padding-top: 10px;
         padding-bottom: 10px;
+        padding-left: 15px;
         padding-right: 15px;
         font-size: 15px;
         font-size: 20px;
