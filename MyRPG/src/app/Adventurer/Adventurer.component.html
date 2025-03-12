@@ -1,38 +1,45 @@
 <div *ngIf="loaded === true" class="Adventurer_Page">
-  <div class="iconandcategory">
-    <div class="iconcontainer">
-      <img [src]="profilePic" />
+  <div class="UserDetails">
+    <img class="BorderBoxLong"src="/MenuBox-X-Long.png" />
+    <div class="UsernameAndLevel">
+      <div class="iconandcategory">
+        <div class="iconcontainer">
+          <img [src]="profilePic" />
+        </div>
+        <p>{{user_name}}</p>
+      </div>
+      <div class="lvliconandlevel">
+        <div class="lvliconcontainer">
+          <img src="/Levelicon.png" />
+        </div>
+        <p>{{level}}</p>
+      </div>
     </div>
-    <p>{{user_name}}</p>
-  </div>
-  <div class="lvliconandlevel">
-    <div class="lvliconcontainer">
-      <img src="/Levelicon.png" />
+    <div class="ClassAndTitle">
+      <h1 class="class_title">Class</h1>
+      <div class="iconandcategory">
+        <div class="iconcontainer">
+          <img *ngIf="className === 'Warrior'" src="/sword-silhouette.png" />
+          <img *ngIf="className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
+        </div>
+        <p>{{className}}</p>
+      </div>
     </div>
-    <p>{{level}}</p>
   </div>
   <div class="statsandbanner">
     <div class=Adventurer_View>
       <div  class="Class_Stats">
-        <div class="ClassAndTitle">
-          <h1 class="class_title">Class</h1>
-          <div class="iconandcategory">
-            <div class="iconcontainer">
-              <img *ngIf="className === 'Warrior'" src="/sword-silhouette.png" />
-              <img *ngIf="className === 'Scholar'" src="/open-book-icon-symbol-vector-free-vector-silhouette-graphics-ai-open-book-silhouette-png-800_800.png" />
-            </div>
-            <p>{{className}}</p>
-          </div>
-        </div>
-        <div class="sectionSeparator"></div>
 
-        <div class="statsSection">
-          <div class="statsContainer" *ngFor="let stat of stats">
-            <div class="Stats_Cont" >
-              <p class="Stat_Name">{{stat.name}}</p>
-              <p class="Stat_Value">{{stat.value}}</p>
-              <div class="Stat_Bar">
-                <div [style.width]="(150 * (stat.value/100)) + 'px'" class="Stat_Amount"></div>
+        <div class="Stat_View">
+          <img src="/MenuBox-Y.png" />
+          <div class="statsSection">
+            <div class="statsContainer" *ngFor="let stat of stats">
+              <div class="Stats_Cont" >
+                <p class="Stat_Name">{{stat.name}}</p>
+                <p class="Stat_Value">{{stat.value}}</p>
+                <div class="Stat_Bar">
+                  <div [style.width]="(150 * (stat.value/100)) + 'px'" class="Stat_Amount"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -45,7 +52,7 @@
     </div>
   </div>
 
-  <div class="iconandcategory">
+  <div class="QuestLog">
     <div class="iconcontainer">
       <img src="/quill-pen-silhouette.png" />
     </div>
