@@ -1,0 +1,32 @@
+<div class="QuestPage" *ngIf="loaded === true">
+	<div class="QuestContainer" *ngFor="let quest of quests; let i = index">
+		<a [routerLink]="'/adventurer/' + quest.user.id">
+			<button class="iconandcategory">
+				<div class="iconcontainer">
+				<img [src]="quest.user.profilePic" />
+				</div>
+				<p>{{quest.user.username}}</p>
+			</button>
+		</a>
+    <p class="Date">{{quest.datetime}} </p>
+		<h1 class="QuestTitle">{{quest.name}}</h1>
+    <div class="MainQuestContainer">
+      <div class="navigator" id={{i}}>
+        <button (click)="changeIndex($event)" id={{index}} *ngFor="let i of [].constructor(quest.questContent.length); let index = index" class="IndexButton"></button>
+      </div>
+      <div class="QuestImageContainer">
+        <img *ngIf="quest.questContent[quest.questContentIndex].type === 'image'" src={{quest.questContent[quest.questContentIndex].contentUrl}} />
+        <video *ngIf="quest.questContent[quest.questContentIndex].type === 'video'" controls width="300">
+          <source src={{quest.questContent[quest.questContentIndex].contentUrl}}/>
+        </video>
+      </div>
+      <div class="DescriptionContainer">
+        <p>{{quest.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loadingscreen" *ngIf="loaded === false">
+    <img [src]="loadingimage"/>
+</div>

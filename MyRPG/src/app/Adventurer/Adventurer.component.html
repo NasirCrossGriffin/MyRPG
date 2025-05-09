@@ -1,19 +1,31 @@
 <div *ngIf="loaded === true" class="Adventurer_Page">
   <div class="UserDetails">
     <img class="BorderBoxLong"src="/MenuBox-X-Long.png" />
-    <div class="UsernameAndLevel">
+    <div class="UsernameLevelAndFollows">
+
       <div class="iconandcategory">
         <div class="iconcontainer">
           <img [src]="profilePic" />
         </div>
         <p>{{user_name}}</p>
       </div>
+
+      <div class="FollowsContainer">
+        <p>{{numberOfFollowers}} followers</p>
+        <button *ngIf="loggedIn !== null && userId !== loggedIn.id.toString()" class="FollowButton" (click)="followButton()">
+          <div class="FollowIconContainer">
+            <img [src]="this.following ? '/Unfollow.png' : '/Follow.png'"  class="FollowIcon" />
+          </div>
+        </button>
+      </div>
+
       <div class="lvliconandlevel">
         <div class="lvliconcontainer">
           <img src="/Levelicon.png" />
         </div>
         <p>{{level}}</p>
       </div>
+
     </div>
     <div class="ClassAndTitle">
       <h1 class="class_title">Class</h1>

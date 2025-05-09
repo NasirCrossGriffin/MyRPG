@@ -1,0 +1,33 @@
+POST http://localhost:8080/api/follows/new
+Content-Type: application/json
+
+{
+  "userAccountId": 7,
+  "followerAccountId": 10
+}
+
+###
+
+POST http://localhost:8080/api/follows/following
+Content-Type: application/json
+
+8
+
+###
+
+POST http://localhost:8080/api/follows/followers
+Content-Type: application/json
+
+7
+
+###
+
+POST http://localhost:8080/api/follows/count
+Content-Type: application/json
+
+7
+
+###
+
+GET http://localhost:8080/api/quest/follow/11
+Content-Type: application/json

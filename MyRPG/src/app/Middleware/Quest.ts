@@ -5,7 +5,7 @@ const BASE_URL : string = environment.BASE_URL;
 export type Quest = {
   name : String
   description : String;
-  datetime : Date;
+  datetime : String;
   userId : String;
 }
 
@@ -77,4 +77,24 @@ export async function getQuestByUserId(userId : String) {
   }
 }
 
+export async function getFollowedUserQuests(userId : String) {
+  console.log("The user id specified is " + userId)
 
+  try {
+    const questresponse = await fetch (`${BASE_URL}/api/quest/follow/${userId}`,{
+      headers : {"content-type" : "application/json"},
+      method : "GET",
+    })
+
+    if (questresponse.ok) {
+      console.log("quest retrieved successfully")
+      const listofquests = await questresponse.json();
+      return listofquests;
+    } else {
+      return null;
+    }
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}

@@ -11,3 +11,4 @@ public interface QuestContentRepository extends JpaRepository<QuestContent, Long
     @Query("SELECT q FROM QuestContent q WHERE q.quest.id = :questId")
     List<QuestContent> findQuestContentByQuestId(@Param("questId") Long questId);
 }
+

@@ -83,4 +83,18 @@ public class QuestService {
         System.out.println("Delete user route Accessed.");
         userRepository.deleteById(id);
     }
+
+    public List<QuestResponse> getFollowedUserQuest(Long userId) {
+        List<Quest> quests = questRepository.findFollowedUserQuests(userId);
+
+        List<QuestResponse> questResponses = new ArrayList<>();
+
+        quests.forEach(quest -> questResponses.add(quest.createResponse()));
+
+        if (questResponses.isEmpty()) {
+            return null;
+        }
+
+        return questResponses;        
+    }
 }

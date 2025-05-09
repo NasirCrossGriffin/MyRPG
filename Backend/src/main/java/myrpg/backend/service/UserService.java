@@ -141,6 +141,10 @@ public class UserService {
     public UserResponse checkIfLoggedIn(HttpSession session) {
         System.out.println("Check if logged in route accessed.");
         Long userId = this.sessionService.getSession(session);
+
+        if (userId == null)
+            return null;
+
         Optional<User> user = userRepository.findById(userId);
         User retrievedUser = user.orElseThrow(() -> new RuntimeException("User not found with ID: " + userId));
         System.out.println(retrievedUser);

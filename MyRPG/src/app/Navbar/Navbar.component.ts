@@ -14,7 +14,7 @@ import {createUser, User, checkLoggedIn, logOutUser} from "../Middleware/User"
 
 export class NavBarComponent {
   drawerVisibility : boolean = false;
-  user : any = checkLoggedIn
+  user : any = null;
   constructor(private router: Router, private cdRef: ChangeDetectorRef) {}
 
 

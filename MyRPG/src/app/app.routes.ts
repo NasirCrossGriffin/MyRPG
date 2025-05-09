@@ -5,6 +5,7 @@ import { AdventurerComponent } from './Adventurer/Adventurer.component'; // Impo
 import { ViewAdventurersComponent } from './ViewAdventurers/ViewAdventurers.component';
 import { NewQuestComponent } from './NewQuest/NewQuest.component';
 import { QuestComponent } from './Quest/Quest.component';
+import { FollowedQuestsComponent } from './FollowedQuests/FollowedQuests.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent }, // Default route
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'adventurers', component: ViewAdventurersComponent },
     { path: 'newquest', component: NewQuestComponent },
     { path: 'quest/:id', component: QuestComponent },
+    { path: 'followed', component: FollowedQuestsComponent },
     { path: '**', redirectTo: 'login' } // Wildcard route for 404
 ];

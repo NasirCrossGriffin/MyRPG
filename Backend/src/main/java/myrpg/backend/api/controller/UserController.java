@@ -77,7 +77,13 @@ public class UserController {
 
     @CrossOrigin(origins = "http://localhost:4200") // Allow frontend access
     @PostMapping("/api/users/check")
-    public UserResponse checkLoggedIn(HttpSession session) {
-        return userService.checkIfLoggedIn(session);
+    public ResponseEntity<UserResponse> checkLoggedIn(HttpSession session) {
+        UserResponse userResponse = userService.checkIfLoggedIn(session);
+
+        if (userResponse != null) {
+            return ResponseEntity.ok(userResponse); 
+        }
+
+        return ResponseEntity.badRequest().body(null);
     }
 }

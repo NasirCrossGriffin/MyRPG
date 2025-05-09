@@ -1,5 +1,4 @@
 package myrpg.backend.api.model;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +26,7 @@ public class Quest {
     private String name;
 
     @Column(name = "datetime", nullable = false, unique = false)
-    private Date datetime;
+    private String datetime;
 
     @Column(name = "description", nullable = false, unique = false)
     private String description;
@@ -61,11 +60,11 @@ public class Quest {
         this.name = name;
     }
 
-    public Date getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(Date datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 

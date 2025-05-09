@@ -63,6 +63,14 @@ public class User implements Serializable {  // ✅ Make User serializable
 
     @OneToMany(mappedBy = "uploader")
     private Set<Quest> quests = new HashSet<>();
+
+    @OneToMany(mappedBy = "userAccount") 
+    private Set<Follows> followers = new HashSet<>();
+
+    @OneToMany(mappedBy = "followerAccount") 
+    private Set<Follows> following = new HashSet<>();
+
+
     
     public User() {
 
@@ -155,17 +163,31 @@ public class User implements Serializable {  // ✅ Make User serializable
     }
 
     @Override
-public String toString() {
-    return "User{" +
-            "id=" + id +
-            ", username='" + username + '\'' +
-            ", password='[PROTECTED]'" + // Masking password for security
-            ", email='" + email + '\'' +
-            ", level=" + level +
-            ", toNextLevel=" + toNextLevel +
-            ", characterclass=" + (characterclass != null ? characterclass.getId() : "null") +
-            ", profilePic='" + profilePic + '\'' +
-            ", bannerPic='" + bannerPic + '\'' +
-            '}';
-}
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='[PROTECTED]'" + // Masking password for security
+                ", email='" + email + '\'' +
+                ", level=" + level +
+                ", toNextLevel=" + toNextLevel +
+                ", characterclass=" + (characterclass != null ? characterclass.getId() : "null") +
+                ", profilePic='" + profilePic + '\'' +
+                ", bannerPic='" + bannerPic + '\'' +
+                '}';
+    }
+
+    @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof User)) return false;
+            User user = (User) o;
+            return java.util.Objects.equals(this.id, user.id);
+        }
+
+        @Override
+        public int hashCode() {
+            return java.util.Objects.hash(this.id);
+        }
+
 }

@@ -3,6 +3,7 @@ package myrpg.backend.api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,5 +58,17 @@ public class QuestController {
     @DeleteMapping("/api/quest/{id}")
     public void deleteQuest(@PathVariable Long id) {
     	questService.deleteQuest(id);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/api/quest/follow/{userId}")
+    public ResponseEntity<List<QuestResponse>> getFollowedUserQuests(@PathVariable Long userId) {
+        List<QuestResponse> questResponses = questService.getFollowedUserQuest(userId);
+
+        if (questResponses != null) {
+            return ResponseEntity.ok(questResponses);
+        }
+
+        return ResponseEntity.internalServerError().body(null);
     }
 }

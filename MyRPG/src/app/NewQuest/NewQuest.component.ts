@@ -22,9 +22,11 @@ export class NewQuestComponent {
   statsToChange : any = [];
   name : string = "";
   description : string = "";
-  datetime : Date = new Date();
   questContent : any = [];
   questContentEntries : any;
+  loading : boolean = false;
+  submitted : boolean = false;
+  leveledUp : boolean = false;
   constructor(private router : Router) {};
 
   async ngOnInit() {
@@ -93,7 +95,7 @@ export class NewQuestComponent {
     const protoQuest : Quest = {
         name : this.name,
         description : this.description,
-        datetime : this.datetime,
+        datetime : (new Date()).toISOString(),
         userId : this.user.id
     };
 

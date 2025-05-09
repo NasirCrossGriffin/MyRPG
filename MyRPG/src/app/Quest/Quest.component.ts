@@ -36,6 +36,7 @@ export class QuestComponent {
   async ngOnInit() {
     this.questId = this.route.snapshot.paramMap.get('id') ?? '';
     this.quest = await getQuestById(this.questId)
+    this.reformatDates()
     this.userId = this.quest.userId;
     this.user = await getUserById(this.userId);
     this.datetime = new Date()
@@ -80,5 +81,19 @@ export class QuestComponent {
     var newIndex = (e.target as HTMLElement).id;
     this.checkMediaType(this.questContent[newIndex].contentUrl);
     this.questContentIndex = parseInt(newIndex, 0);
+  }
+
+  reformatDates() {
+        if (this.quest.datetime !== null) {
+            var datetime = new Date(this.quest.datetime);
+            
+            const month = (datetime.getMonth() + 1).toString().padStart(2, '0'); // months are 0-indexed
+            const day = datetime.getDate().toString().padStart(2, '0');
+            const year = datetime.getFullYear();
+
+            const formattedDate = `${month}/${day}/${year}`;
+
+            this.quest.datetime = formattedDate;
+        }
   }
 }
