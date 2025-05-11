@@ -7,13 +7,13 @@
   height : fit-content
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .Adventurer_Page {
     margin-top: 50px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .Adventurer_Page {
     margin-top: 120px;
   }
@@ -45,14 +45,14 @@
     border-style: solid;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .Stat_Bar {
     height : 10px;
     width : 75px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .Stat_Bar {
     height : 20px;
     width : 150px;
@@ -76,7 +76,7 @@
   color: white;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .iconandcategory {
     margin-top: 1px;
     margin-bottom: 1px;
@@ -85,7 +85,7 @@
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .iconandcategory {
     font-size: 50px;
   }
@@ -101,14 +101,14 @@
   margin-right: 1%;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .iconcontainer {
     width : 50px;
     height : 50px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .iconcontainer {
     width : 100px;
     height : 100px;
@@ -133,13 +133,13 @@
   padding: 0px 25px 0px 25px;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .sectionSeparator {
     width : 50%;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .sectionSeparator {
     width : 100%;
   }
@@ -155,19 +155,19 @@
   color: white;
   margin-bottom: 25px;
   margin-top: 0;
-  z-index : 20000;
+  z-index : 50;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .statsSection {
     width : 50%;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .statsSection {
     width : 100%;
   }
@@ -235,13 +235,17 @@
   box-shadow: 12px 12px 5px 5px rgb(0, 0 , 0, 0);
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .lvliconandlevel {
+    position: absolute;
     font-size: 25px;
+    top: 0;
+    left : 85%;
+    transform: translateX(-85%);
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .lvliconandlevel {
     font-size: 45px;
   }
@@ -256,14 +260,14 @@
   margin-right: 1%;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .lvliconcontainer {
     width : 50px;
     height : 50px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .lvliconcontainer {
     width : 100px;
     height : 100px;
@@ -297,13 +301,13 @@
   margin-bottom: 0;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .Stat_Name, .Stat_Value {
     font-size: 25px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .Stat_Name, .Stat_Value {
     font-size: 45px;
   }
@@ -315,13 +319,13 @@
   margin-bottom: 0px;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .class_title {
     font-size: 30px;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .class_title {
     font-size: 60px;
   }
@@ -403,14 +407,14 @@
   text-decoration: none;
 }
 
-@media (max-width : 767px) {
+@media (max-width : 1439px) {
   .loadingscreen img{
       width: 50%;
       height : 50%;
   }
 }
 
-@media (min-width : 768px) {
+@media (min-width : 1440px) {
   .loadingscreen img{
 
   }
@@ -450,8 +454,9 @@
 
 @media (max-width : 1439px) {
   .UserDetails {
-    width : 400px;
+    width : 300px;
     padding: 10px 10px 10px 10px;
+    margin-top: 100px;
   }
 }
 
@@ -482,15 +487,27 @@
 
 .UsernameLevelAndFollows {
   position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  z-index : 2000000;
+  z-index : 50;
   width: 90%;
-  top : 5%;
-  left : 5%;
+  
+}
 
+@media (max-width : 1439px) {
+  .UsernameLevelAndFollows {
+    top : 0px;
+    left : 0px;
+  }
+}
+
+@media (min-width : 1440px) {
+  .UsernameLevelAndFollows {
+    top : 5%;
+    left : 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .QuestLog {
@@ -504,6 +521,7 @@
   border-radius: 55px;
   color: white;
   background-color: rgb(27, 27, 27, 1);
+  margin-bottom: 50px;
   font-size: 35px;
 }
 
@@ -563,14 +581,6 @@
 
 }
 
-.FollowsContainer {
-  font-size : 50px;
-  font-family: KHFont;
-  margin-top: 50px;
-  color: white;
-  width : 300px;
-}
-
 .FollowButton {
   background-color: transparent;
   border-color: transparent;
@@ -591,4 +601,60 @@
   width : 100%;
   height : 100%;
   object-fit: contain;
+}
+
+.FollowsContainer {
+  font-family: KHFont;
+  color: white;
+}
+
+@media (max-width : 1439px) {
+  .FollowsContainer {
+    position: absolute;
+    font-size : 25px;
+    margin-top: 20px;
+    width : 100px;
+    top : 0px;
+    left : 60%;
+    transform: translateX(-60%);
+  }
+}
+
+@media (min-width : 1440px) {
+  .FollowsContainer {
+    font-size : 50px;
+    margin-top: 50px;
+    width : 300px;
+  }
+}
+
+.FollowButton {
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0px;
+  border-style: none;
+}
+
+.FollowIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width : 100%;
+  height : 100%;
+  object-fit: contain;
+}
+
+@media (max-width : 1439px) {
+  .FollowIconContainer {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (min-width : 1440px) {
+  .FollowIconContainer {
+    width: 50px;
+    height: 50px;
+  }
 }

@@ -30,8 +30,56 @@
 
 <button class="submit" (click)="submitHandler()">Submit</button>
 
-<div class="QuestLog" *ngIf="submitted === false">
-  <div class="QuestLogContainer">
+
+<div class="QuestLogBackground" *ngIf="submitted === true"></div>
+<div class="QuestLog" *ngIf="user != null && submitted === true ">
+  <div class="QuestLogContainer" *ngIf="loading === false">
+    
+    <P class="Username">{{user.username}}</P>
+
+    <div class="icon">
+      <div class="iconcontainer">
+        <img [src]="user.profilePic" />
+      </div>
+    </div>
+
+    <div class="lvliconandlevel">
+      <div class="lvliconcontainer">
+        <img src="/Levelicon.png" />
+      </div>
+      <p>{{user.level}}</p>
+      <p>{{user.toNextLevel}} to next level</p>
+    </div>
+    <div class="LevelBar" [style.width]="screenSize > 1439 ? '500px' : '250px' ">
+      <div class="LevelAmount" [style.width]="screenSize > 1439 ? ((1000 - user.toNextLevel) / 1000) * 500 + 'px' : ((1000 - user.toNextLevel) / 1000) * 250 + 'px' "></div>
+    </div>
+    <p class="LeveledUp" *ngIf="leveledUp === true">You have leveled up!</p>
+    <audio controls autoplay [style.display]="'none'">
+      <source *ngIf="leveledUp === true" src="/kh-level-up.mp3"  type="audio/mpeg">
+    </audio>
+
+    <div class="StatView">
+      <img src="/MenuBox-Y.png" />
+      <div class="statsSection">
+        <div class="statsContainer" *ngFor="let stat of stats">
+          <div class="StatsCont" >
+            <p *ngIf="!statsToChangeNames.includes(stat.name)" class="Stat_Name">{{stat.name}}</p>
+            <p *ngIf="statsToChangeNames.includes(stat.name)" class="Stat_Name">{{stat.name}} + 5</p>
+            <p class="Stat_Value">{{stat.value}}</p>
+            <div class="Stat_Bar">
+              <div [style.width]="(150 * (stat.value/100)) + 'px'" class="Stat_Amount"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="ContinueButton" (click)="navigateToQuest()">Continue</button>
 
   </div>
+
+  <div class="loadingscreen" *ngIf="loading === true">
+    <img src="/jokerrunning.gif"/>
+  </div>
+
 </div>

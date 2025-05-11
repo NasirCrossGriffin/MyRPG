@@ -11,7 +11,7 @@
       </div>
 
       <div class="FollowsContainer">
-        <p>{{numberOfFollowers}} followers</p>
+        <p class="followers">{{numberOfFollowers}} followers</p>
         <button *ngIf="loggedIn !== null && userId !== loggedIn.id.toString()" class="FollowButton" (click)="followButton()">
           <div class="FollowIconContainer">
             <img [src]="this.following ? '/Unfollow.png' : '/Follow.png'"  class="FollowIcon" />
@@ -27,6 +27,7 @@
       </div>
 
     </div>
+
     <div class="ClassAndTitle">
       <h1 class="class_title">Class</h1>
       <div class="iconandcategory">
@@ -37,6 +38,7 @@
         <p>{{className}}</p>
       </div>
     </div>
+    
   </div>
   <div class="statsandbanner">
     <div class=Adventurer_View>

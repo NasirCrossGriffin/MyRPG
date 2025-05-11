@@ -20,13 +20,16 @@ export class NewQuestComponent {
   user : any = null;
   stats : any = [];
   statsToChange : any = [];
+  statsToChangeNames : any = [];
   name : string = "";
   description : string = "";
   questContent : any = [];
   questContentEntries : any;
-  loading : boolean = false;
+  loading : boolean = true;
   submitted : boolean = false;
   leveledUp : boolean = false;
+  screenSize : number = window.innerWidth;
+  newQuest : any = null;
   constructor(private router : Router) {};
 
   async ngOnInit() {
@@ -35,6 +38,7 @@ export class NewQuestComponent {
           this.router.navigate(['/adventurer', this.user.id]); // Navigates to /user/:id
       }
       console.log(this.user);
+      console.log(this.user.toNextLevel)
       this.stats = await getStatsByClassId(this.user.classId)
       if (this.stats === null) {
         console.log("no stats")
@@ -89,9 +93,19 @@ export class NewQuestComponent {
         stat.enabled = !(stat.enabled)
       }
     }
+
+    if (!(this.statsToChangeNames.includes(statToChange))) {
+      this.statsToChangeNames.push(statToChange)
+    } else {
+      this.statsToChangeNames = this.statsToChangeNames.filter((stat : string) => stat !== statToChange)
+    }
   }
 
   async submitHandler() {
+    this.submitted = true;
+
+    this.loading = true;
+
     const protoQuest : Quest = {
         name : this.name,
         description : this.description,
@@ -102,30 +116,36 @@ export class NewQuestComponent {
     console.log(protoQuest);
 
     const newQuest = await createQuest(protoQuest)
+
     if (newQuest) {
-        for (var content of this.questContent) {
-            var contentUrl = await createBucketObject(content.file);
-            if (contentUrl === "")
-                return;
 
-            var protoQuestContent : QuestContent = {
-                contentUrl : contentUrl,
-                type : content.type,
-                questId : newQuest.id
-            };
+      for (var content of this.questContent) {
+          var contentUrl = await createBucketObject(content.file);
+          if (contentUrl === "")
+              return;
 
-            console.log(protoQuestContent);
+          var protoQuestContent : QuestContent = {
+              contentUrl : contentUrl,
+              type : content.type,
+              questId : newQuest.id
+          };
 
-            var newQuestContent = await createQuestContent(protoQuestContent);
+          console.log(protoQuestContent);
 
-            if (newQuestContent === null)
-                return
-        }
+          var newQuestContent = await createQuestContent(protoQuestContent);
+
+          if (newQuestContent === null)
+              return
+      }
+
+      this.newQuest = newQuest;
+
     } else {
         return
     }
 
     for (var stat of this.stats) {
+
       for (var statToChange of this.statsToChange) {
         if (stat.name === statToChange.name) {
           if (statToChange.enabled === true ) {
@@ -143,11 +163,13 @@ export class NewQuestComponent {
           }
         }
       }
+
     }
 
     var toNextLevel = (this.user.toNextLevel - 200)
 
     if (toNextLevel > 0) {
+
       var protoUser = {
         id : this.user.id,
         username : this.user.username,
@@ -159,7 +181,9 @@ export class NewQuestComponent {
         profilePic : this.user.profilePic,
         bannerPic : this.user.bannerPic
       }
+
     } else {
+
       var protoUser = {
         id : this.user.id,
         username : this.user.username,
@@ -171,14 +195,23 @@ export class NewQuestComponent {
         profilePic : this.user.profilePic,
         bannerPic : this.user.bannerPic
       }
+
+      this.leveledUp = true
+      
     }
 
     console.log(protoUser)
 
     var patchedUser = await patchUser(protoUser)
 
-    if (newQuest) {
-      this.router.navigate(['/quest', newQuest.id]); // Navigates to /user/:id
+    this.user = patchedUser;
+
+    this.loading = false;
+  }
+
+   navigateToQuest() {
+    if (this.newQuest) {
+      this.router.navigate(['/quest', this.newQuest.id]); // Navigates to /user/:id
     }
   }
 }
