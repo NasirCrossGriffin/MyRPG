@@ -197,7 +197,7 @@ export class NewQuestComponent {
       }
 
       this.leveledUp = true
-      
+
     }
 
     console.log(protoUser)
@@ -205,6 +205,8 @@ export class NewQuestComponent {
     var patchedUser = await patchUser(protoUser)
 
     this.user = patchedUser;
+
+    this.stats = await getStatsByClassId(this.user.classId)
 
     this.loading = false;
   }

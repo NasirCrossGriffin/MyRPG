@@ -500,6 +500,7 @@ input[type="text"] {
     transform: translateX(-95%);
     width : 75px;
     height : 45px;
+    font-size: 15px;
   }
 }
 
@@ -509,6 +510,7 @@ input[type="text"] {
     left : 15px;
     width : 100px;
     height : 50px;
+    font-size: 25px;
   }
 }
 
@@ -518,7 +520,6 @@ input[type="text"] {
   background-color: blueviolet;
   color: white;
   font-family: KHFont;
-  font-size: 25px;
   border-color: transparent;
   border-radius: 15px;
   box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.8);

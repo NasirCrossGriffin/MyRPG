@@ -7,7 +7,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-
+    /* 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
@@ -23,7 +23,43 @@ public class SecurityConfig {
             .httpBasic(httpBasic -> {}) // Use an empty lambda body to enable HTTP Basic Authentication
             .build(); // Return the built SecurityFilterChain
     }
+            */
+            @Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http
+        .cors(cors -> cors.disable())
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers(
+                "/", 
+                "/index.html",
+                "/favicon.ico",
+                "/assets/**",
+                "/media/**",
+                "/*.*",
+                "/static/**",
+                "/**/*.js",
+                "/*.js", 
+                "/**/*.css", 
+                "/*.css",
+                "/**/*.png",
+                 "/*.png",
+                "/**/*.jpg",
+                "/*.jpg",
+                "/**/*.woff2",
+                "/**/*.ttf",
+                "/*.ttf",
+                "/**"
+            ).permitAll()
+            .requestMatchers("/api/**").permitAll()
+            .anyRequest().authenticated()  // Only protect sensitive routes
+        )
+        .httpBasic(httpBasic -> {})
+        .build();
 }
+
+}
+    
 
 
 

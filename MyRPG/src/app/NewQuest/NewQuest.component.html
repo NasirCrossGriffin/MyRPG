@@ -50,8 +50,8 @@
       <p>{{user.level}}</p>
       <p>{{user.toNextLevel}} to next level</p>
     </div>
-    <div class="LevelBar" [style.width]="screenSize > 1439 ? '500px' : '250px' ">
-      <div class="LevelAmount" [style.width]="screenSize > 1439 ? ((1000 - user.toNextLevel) / 1000) * 500 + 'px' : ((1000 - user.toNextLevel) / 1000) * 250 + 'px' "></div>
+    <div class="LevelBar" [style.width]="screenSize > 1439 ? '500px' : '175px' ">
+      <div class="LevelAmount" [style.width]="screenSize > 1439 ? ((1000 - user.toNextLevel) / 1000) * 500 + 'px' : ((1000 - user.toNextLevel) / 1000) * 175 + 'px' "></div>
     </div>
     <p class="LeveledUp" *ngIf="leveledUp === true">You have leveled up!</p>
     <audio controls autoplay [style.display]="'none'">
