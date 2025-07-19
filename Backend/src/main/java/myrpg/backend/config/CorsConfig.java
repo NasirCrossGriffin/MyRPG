@@ -9,10 +9,15 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Applies to all endpoints
-                .allowedOrigins("http://localhost:4200") // Allow frontend domain
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed methods
-                .allowedHeaders("*") // Allow all headers
-                .allowCredentials(true); // Allow credentials (e.g., cookies, Authorization headers)
+        registry.addMapping("/**")
+                .allowedOrigins(
+                    "http://localhost:4200",      // Dev Angular
+                    "http://73.193.162.119",      // Direct IP access
+                    "http://myrpgapp.com",        // Custom domain
+                    "https://myrpgapp.com"        // HTTPS domain
+                )
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
