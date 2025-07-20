@@ -23,7 +23,7 @@ public class SecurityConfig {
                     "/", "/index.html", "/favicon.ico",
                     "/assets/**", "/media/**", "/static/**",
                     "/**/*.js", "/**/*.css", "/**/*.png", "/**/*.jpg", "/**/*.woff2", "/**/*.ttf",
-                    "/api/**"
+                    "/api/**", "/backend/**"
                 ).permitAll()
                 .anyRequest().authenticated()
             )
