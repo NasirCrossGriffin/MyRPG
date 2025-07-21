@@ -5,7 +5,7 @@ import {createCharacterClass, characterClass} from "../Middleware/Class";
 import { Router, RouterModule } from '@angular/router';
 import {createStat, Stat} from "../Middleware/Stat"
 import {createUser, User} from "../Middleware/User"
-import {createBucketObject} from "../Middleware/Bucket"
+import {uploadAsset} from "../Middleware/Assets"
 
 
 
@@ -134,12 +134,12 @@ export class SignupComponent {
     }
 
     if (this.profilepic instanceof File)
-      this.profilePicURL = await createBucketObject(this.profilepic);
+      this.profilePicURL = await uploadAsset(this.profilepic);
     else
       return;
 
     if (this.bannerpic instanceof File)
-      this.bannerPicURL = await createBucketObject(this.bannerpic);
+      this.bannerPicURL = await uploadAsset(this.bannerpic);
     else
       return;
 

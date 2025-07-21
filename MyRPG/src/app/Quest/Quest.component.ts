@@ -3,7 +3,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { createQuest, getQuestById, Quest } from '../Middleware/Quest';
 import { createQuestContent, getQuestContentByQuestId, QuestContent } from '../Middleware/QuestContent';
-import { createBucketObject } from '../Middleware/Bucket';
+import { uploadAsset } from '../Middleware/Assets';
 import { getUserById } from '../Middleware/User';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 

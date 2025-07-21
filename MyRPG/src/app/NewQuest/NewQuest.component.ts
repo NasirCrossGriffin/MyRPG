@@ -5,7 +5,7 @@ import { getCharacterClassById } from '../Middleware/Class';
 import { Router } from '@angular/router';
 import { createQuest, getQuestById, Quest } from '../Middleware/Quest';
 import { createQuestContent, QuestContent } from '../Middleware/QuestContent';
-import { createBucketObject } from '../Middleware/Bucket';
+import { uploadAsset } from '../Middleware/Assets';
 import { CommonModule } from '@angular/common';
 
 @Component ({
@@ -120,7 +120,7 @@ export class NewQuestComponent {
     if (newQuest) {
 
       for (var content of this.questContent) {
-          var contentUrl = await createBucketObject(content.file);
+          var contentUrl = await uploadAsset(content.file);
           if (contentUrl === "")
               return;
 

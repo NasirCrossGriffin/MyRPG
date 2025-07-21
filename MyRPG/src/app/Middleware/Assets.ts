@@ -2,11 +2,11 @@ import { environment } from '../../environments/environment';
 
 const BASE_URL : string = environment.BASE_URL;
 
-export async function createBucketObject(objectFile : File) {
+export async function uploadAsset(objectFile : File) {
   var formdata = new FormData;
   formdata.append("file", objectFile)
   try {
-    const bucketresponse = await fetch (`${BASE_URL}/api/buckets/insert`,{
+    const bucketresponse = await fetch (`${BASE_URL}/api/assets/insert`,{
       method : "POST",
       body : formdata
     })
