@@ -35,6 +35,10 @@ export class FollowedQuestsComponent {
 
   async ngOnInit() {
     this.loggedIn = await checkLoggedIn();
+    if (this.loggedIn !== null) {
+      this.userId = this.loggedIn.id;
+    }
+
     this.quests = await getFollowedUserQuests(this.loggedIn.id)
     await this.getQuestContent();
     await this.getQuestUsers();

@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 @media (max-width : 1439px) {
@@ -213,6 +214,7 @@
     font-size: 50px;
     background-color: transparent;
     border-color: transparent;
+    color: white;
 }
 
 @media (max-width : 1439px) {
@@ -228,7 +230,7 @@
   }
 
 .iconandcategory:hover {
-    color : white;
+    color : black;
 }
 
 .iconcontainer {
@@ -281,7 +283,7 @@
 
 .Date {
   font-size: 75px;
-  color: black;
+  color: white;
   font-family: KHFont;
   margin-top: 0px;
   margin-bottom: 0px;
