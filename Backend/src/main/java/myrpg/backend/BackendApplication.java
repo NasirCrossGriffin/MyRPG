@@ -14,15 +14,16 @@ public class BackendApplication {
 
 		if (System.getenv("ENVIRONMENT") != null) {
 			environment = System.getenv("ENVIRONMENT");
+			System.setProperty("ENVIRONMENT", System.getenv("ENVIRONMENT"));
 		} else {
-			environment = "development";
+			environment = "DEVELOPMENT";
 		}
 		
 		System.out.println("MyRPG is running in " + environment + " mode.");
 
 
         // Set system properties for Spring Boot
-        if (environment.equals("development")) {
+        if (environment.equals("DEVELOPMENT")) {
 			// Load .env file
 			Dotenv dotenv = Dotenv.configure()
 			.directory("./")  // Adjust the path to your .env file
@@ -35,7 +36,7 @@ public class BackendApplication {
 			System.out.println("ENDPOINT: " + dotenv.get("DEVELOPMENT_ENDPOINT"));
 			System.out.println("DBUSERNAME: " + dotenv.get("DBUSERNAME"));
 			System.out.println("PASSWORD: " + dotenv.get("PASSWORD"));
-		} else if (environment.equals("production")) {
+		} else if (environment.equals("PRODUCTION")) {
 			System.setProperty("ENDPOINT", System.getenv("PRODUCTION_ENDPOINT"));
 			System.setProperty("DBUSERNAME", System.getenv("DBUSERNAME"));
 			System.setProperty("PASSWORD", System.getenv("PASSWORD"));

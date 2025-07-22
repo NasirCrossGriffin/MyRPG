@@ -3,10 +3,14 @@ version: '3'
 services:
   backend:
     build: ./Backend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     env_file:
       - ./Backend/.env
     ports:
       - "${PORT}:${PORT}" # Adjust as needed
+    volumes:
+      - /portfolio/MyRPG/assets:/app/assets
     networks:
       - mynet
 

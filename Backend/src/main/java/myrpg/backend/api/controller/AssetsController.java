@@ -60,7 +60,8 @@ public class AssetsController {
     */
 
     public ResponseEntity<String> uploadFileLocally(MultipartFile file) {
-        String uploadDir = "/portfolio/MyRPG/assets";
+	System.out.println("File will be uploaded locally");    
+        String uploadDir = "/app/assets";
         String fileName = file.getOriginalFilename();
 
         try {
@@ -71,6 +72,8 @@ public class AssetsController {
 
             Path filePath = uploadPath.resolve(fileName);
             file.transferTo(filePath.toFile());
+
+	    System.out.println("file successfully transfered");
 
             // Return accessible URL
             String fileUrl = "https://myrpgapp.com/assets/" + fileName;
@@ -105,7 +108,8 @@ public class AssetsController {
 
     @PostMapping("/insert")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-        if (System.getProperty("ENVIRONMENT") == "PRODUCTION") {
+	System.out.println("Insert route acccessed successfully");    
+        if (System.getProperty("ENVIRONMENT").equals("PRODUCTION")) {
             return uploadFileLocally(file);
         } else {
             String fileURL = "";
