@@ -27,7 +27,7 @@
 }
 
 .UploadContent {
-  
+
   margin-left: 50px;
   margin-right: 50px;
 }
@@ -36,14 +36,14 @@
   .UploadContent {
     width: 100px;
     height : 100px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .UploadContent {
     width: 300px;
     height : 300px;
-  } 
+  }
 }
 
 
@@ -77,7 +77,7 @@
     height : 100px;
     margin-left: 10px;
     margin-right: 10px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -86,7 +86,7 @@
     height : 300px;
     margin-left: 50px;
     margin-right: 50px;
-  } 
+  }
 }
 
 .QuestContent img {
@@ -113,7 +113,7 @@
     width: 100px;
     height: 50px;
     font-size: 25px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -121,7 +121,7 @@
     width: 200px;
     height: 100px;
     font-size: 50px;
-  } 
+  }
 }
 
 .submit:hover {
@@ -143,7 +143,7 @@
     margin-left: 10px;
     margin-right: 10px;
     font-size: 15px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -153,7 +153,7 @@
     margin-left: 25px;
     margin-right: 25px;
     font-size: 50px;
-  } 
+  }
 }
 
 .StatButton:hover {
@@ -162,17 +162,17 @@
 }
 
 @media (max-width : 767px) {
-  .StatButton:hover { 
+  .StatButton:hover {
     width: 120px;
     height: 70px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
-  .StatButton:hover { 
+  .StatButton:hover {
     width: 220px;
     height: 120px;
-  } 
+  }
 }
 
 label {
@@ -185,13 +185,13 @@ label {
 @media (max-width : 767px) {
     label {
       font-size: 25px;
-    } 
+    }
   }
-  
+
   @media (min-width : 768px) {
     label {
       font-size: 50px;
-    } 
+    }
   }
 
 p {
@@ -231,7 +231,7 @@ input[type="text"] {
     width : 300px;
     height: 25px;
     font-size: 15px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -239,7 +239,7 @@ input[type="text"] {
     width : 500px;
     height: 50px;
     font-size: 30px;
-  } 
+  }
 }
 
 .StatButtonContainer {
@@ -253,7 +253,7 @@ input[type="text"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap : 10px 10px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
@@ -263,7 +263,7 @@ input[type="text"] {
     flex-direction: row;
     margin-left: 25px;
     margin-right: 25px;
-  } 
+  }
 }
 
 .description {
@@ -278,15 +278,15 @@ input[type="text"] {
     width : 300px;
     height: 100px;
     font-size: 15px;
-  } 
+  }
 }
 
 @media (min-width : 768px) {
   .description {
     width : 500px;
     height: 250px;
-    font-size: 30px; 
-  } 
+    font-size: 30px;
+  }
 }
 
 .QuestLog {
@@ -516,6 +516,26 @@ input[type="text"] {
   }
 }
 
+.loadingscreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoadingText {
+  color: white;
+  font-size: clamp(12px, 4vw, 48px);
+  font-family: KHFont;
+}
+
+.loadingscreen img {
+  object-fit: contain;
+  height: 50%;
+  width: auto;
+}
 
 .ContinueButton {
   position: fixed;
@@ -525,15 +545,6 @@ input[type="text"] {
   border-color: transparent;
   border-radius: 15px;
   box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.8);
-}
-
-.loadingscreen {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (max-width : 1439px) {
