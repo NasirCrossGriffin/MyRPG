@@ -19,7 +19,7 @@ import { countFollowers, createFollow, getFollowBridge, unfollow } from '../Midd
 
 export class AdventurerComponent {
     loggedIn : any = null;
-    loadingimage : string = "/jokerrunning.gif"
+    loadingimage : string = "/MyRPG_Girl_Writing.png"
     loaded : boolean = false;
     className: string = "";
     userId: string | null = '';
@@ -59,11 +59,11 @@ export class AdventurerComponent {
           }
 
           console.log(this.following)
-          
+
           console.log(this.loggedIn.id)
         }
 
-        
+
         this.profilePic = this.user.profilePic;
         this.bannerPic = this.user.bannerPic;
         this.user_name = this.user.username;

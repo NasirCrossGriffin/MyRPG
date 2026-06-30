@@ -18,7 +18,7 @@ export class ViewAdventurersComponent {
   users : any = [];
   userView : UserCard[] = [];
   loaded : boolean = false
-  loadingimage : string = "/jokerrunning.gif"
+  loadingimage : string = "/MyRPG_Girl_Writing.png"
 
   async ngOnInit() {
     this.users = await getAllUsers();

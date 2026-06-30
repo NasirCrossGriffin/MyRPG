@@ -23,7 +23,7 @@
 
 @media (min-width : 768px) {
   .NavBar {
-    height : 100px;
+    height : 70px;
   }
 }
 
@@ -63,7 +63,7 @@
     background-color: white;
     margin-bottom: 10px;
     position: fixed;
-    top: 100px;
+    top: 70px;
     z-index : 200;
 }
 
@@ -75,7 +75,7 @@
 
 @media (min-width : 768px) {
   .NavBarSeparator {
-    top : 100px;
+    top : 70px;
   }
 }
 
@@ -99,7 +99,7 @@
 
 @media (min-width : 768px) {
   .DrawerLine {
-    padding: 5px 30px 5px 30px;
+    padding: 2px 30px 2px 30px;
   }
 }
 

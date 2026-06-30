@@ -30,6 +30,7 @@ export class NewQuestComponent {
   leveledUp : boolean = false;
   screenSize : number = window.innerWidth;
   newQuest : any = null;
+  loadingimage : string = "/MyRPG_Girl_Writing.png"
   constructor(private router : Router) {};
 
   async ngOnInit() {

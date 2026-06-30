@@ -11,6 +11,10 @@
     font-family: KHFont;
 }
 
+.iconandcategory p {
+  color: white;
+}
+
 @media (max-width : 1439px) {
   .iconandcategory {
     font-size: 25px;
