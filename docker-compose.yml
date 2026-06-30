@@ -10,7 +10,7 @@ services:
     ports:
       - "${PORT}:${PORT}" # Adjust as needed
     volumes:
-      - /portfolio/MyRPG/assets:/app/assets
+      - /webapps/MyRPG/Images:/app/assets
     networks:
       - mynet
 
