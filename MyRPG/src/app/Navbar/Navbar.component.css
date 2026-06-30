@@ -224,8 +224,8 @@
 
 @media (min-width : 768px) {
   .iconcontainer {
-    width : 80px;
-    height : 80px;
+    aspect-ratio: 1/1;
+    height : 60px;
   }
 }
 
