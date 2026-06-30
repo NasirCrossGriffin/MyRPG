@@ -217,6 +217,27 @@
     color: white;
 }
 
+.loadingscreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoadingText {
+  color: white;
+  font-size: clamp(12px, 4vw, 48px);
+  font-family: KHFont;
+}
+
+.loadingscreen img {
+  object-fit: contain;
+  height: 50%;
+  width: auto;
+}
+
 @media (max-width : 1439px) {
     .iconandcategory {
         font-size: 25px;
