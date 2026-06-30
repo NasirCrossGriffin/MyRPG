@@ -18,7 +18,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 export class FollowedQuestsComponent {
   loggedIn : any = null;
   loaded : boolean = false;
-  loadingimage : string = "/jokerrunning.gif";
+  loadingimage : string = "/MyRPG_Girl_Writing.png"
   quests : any;
   questContent : any = [];
   user : any;
@@ -88,7 +88,7 @@ export class FollowedQuestsComponent {
     for (let quest of this.quests ) {
       if (quest.datetime !== null) {
           var datetime = new Date(quest.datetime);
-          
+
           const month = (datetime.getMonth() + 1).toString().padStart(2, '0'); // months are 0-indexed
           const day = datetime.getDate().toString().padStart(2, '0');
           const year = datetime.getFullYear();
